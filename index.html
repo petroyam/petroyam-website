@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PetroYAM | قوة تعتمد عليها</title>
-  <meta name="description" content="PetroYAM — علامة احترافية لحلول ومنتجات الطاقة.">
 
   <style>
     :root {
@@ -17,7 +16,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -49,15 +47,21 @@
     }
 
     .logo {
-      text-decoration: none;
       color: var(--white);
       direction: ltr;
       font-size: 28px;
       font-weight: 900;
       letter-spacing: 1px;
+      text-decoration: none;
     }
 
     .logo span { color: var(--gold); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
 
     .links {
       display: flex;
@@ -71,6 +75,22 @@
     }
 
     .links a:hover { color: var(--gold); }
+
+    .language-button {
+      border: 1px solid rgba(255,255,255,.45);
+      background: transparent;
+      color: var(--white);
+      border-radius: 4px;
+      padding: 7px 11px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .language-button:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--navy);
+    }
 
     .hero {
       min-height: 635px;
@@ -114,6 +134,11 @@
       padding: 95px 0;
     }
 
+    [dir="ltr"] .hero-content,
+    [dir="ltr"] .about-copy {
+      text-align: left;
+    }
+
     .eyebrow {
       color: var(--gold);
       font-size: 13px;
@@ -146,12 +171,6 @@
       padding: 15px 28px;
       border-radius: 4px;
       font-weight: bold;
-      transition: .2s;
-    }
-
-    .button:hover {
-      transform: translateY(-3px);
-      background: #f0c45a;
     }
 
     section { padding: 92px 0; }
@@ -201,9 +220,7 @@
       place-items: center;
       direction: ltr;
       color: var(--white);
-      background:
-        linear-gradient(135deg, rgba(7,26,45,.9), rgba(12,77,132,.78)),
-        #0b3d68;
+      background: linear-gradient(135deg, rgba(7,26,45,.9), rgba(12,77,132,.78));
       box-shadow: 0 20px 40px rgba(7,26,45,.2);
     }
 
@@ -214,7 +231,8 @@
 
     .mark strong span { color: var(--gold); }
 
-    .values {
+    .values,
+    .product-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
@@ -255,12 +273,6 @@
     .products .section-heading h2 { color: var(--white); }
     .products .section-heading p { color: #c5d2de; }
 
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
     .product-card {
       padding: 32px 27px;
       border: 1px solid rgba(255,255,255,.14);
@@ -272,6 +284,7 @@
       color: var(--gold);
       font-size: 27px;
       font-weight: bold;
+      direction: ltr;
     }
 
     .product-card h3 { margin: 20px 0 12px; }
@@ -292,11 +305,9 @@
 
     @media (max-width: 760px) {
       .links { display: none; }
-      .nav { justify-content: center; }
+      .nav { justify-content: space-between; }
       .hero { min-height: 560px; }
-      .about-grid,
-      .values,
-      .product-grid { grid-template-columns: 1fr; }
+      .about-grid, .values, .product-grid { grid-template-columns: 1fr; }
       section { padding: 65px 0; }
     }
   </style>
@@ -306,11 +317,15 @@
   <header>
     <div class="container nav">
       <a class="logo" href="#">PETRO<span>YAM</span></a>
-      <nav class="links">
-        <a href="#about">من نحن</a>
-        <a href="#values">قيمنا</a>
-        <a href="#products">منتجاتنا</a>
-      </nav>
+
+      <div class="nav-actions">
+        <nav class="links">
+          <a href="#about" data-i18n="navAbout">من نحن</a>
+          <a href="#values" data-i18n="navValues">قيمنا</a>
+          <a href="#products" data-i18n="navProducts">منتجاتنا</a>
+        </nav>
+        <button class="language-button" id="languageButton" onclick="toggleLanguage()">EN</button>
+      </div>
     </div>
   </header>
 
@@ -319,20 +334,20 @@
       <div class="container hero-content">
         <div class="eyebrow">PERFORMANCE · QUALITY · TRUST</div>
         <h1>PETROYAM</h1>
-        <p>هوية طاقة حديثة مبنية على الثقة، الجودة، والأداء الذي يمكن الاعتماد عليه.</p>
-        <a class="button" href="#about">اكتشف PetroYAM</a>
+        <p data-i18n="heroText">هوية طاقة حديثة مبنية على الثقة، الجودة، والأداء الذي يمكن الاعتماد عليه.</p>
+        <a class="button" href="#about" data-i18n="heroButton">اكتشف PetroYAM</a>
       </div>
     </section>
 
     <section class="about" id="about">
       <div class="container about-grid">
-        <div>
-          <h2>طاقة بثقة</h2>
-          <p>
+        <div class="about-copy">
+          <h2 data-i18n="aboutTitle">طاقة بثقة</h2>
+          <p data-i18n="aboutText1">
             PetroYAM هي علامة تجمع بين الهوية الاحترافية والطموح الواضح:
             تقديم حلول ومنتجات تواكب احتياجات السوق بمعايير عالية من الجودة والموثوقية.
           </p>
-          <p>
+          <p data-i18n="aboutText2">
             نؤمن بأن كل تفصيل يصنع فرقًا، من جودة المنتج إلى التجربة التي نقدمها لعملائنا.
           </p>
         </div>
@@ -346,27 +361,27 @@
     <section id="values">
       <div class="container">
         <div class="section-heading">
-          <h2>ما الذي يمثل PetroYAM؟</h2>
-          <p>أسس واضحة نبني عليها حضورنا ومنتجاتنا.</p>
+          <h2 data-i18n="valuesTitle">ما الذي يمثل PetroYAM؟</h2>
+          <p data-i18n="valuesIntro">أسس واضحة نبني عليها حضورنا ومنتجاتنا.</p>
         </div>
 
         <div class="values">
           <article class="value">
             <div class="number">01</div>
-            <h3>الجودة</h3>
-            <p>اهتمام متواصل بالتفاصيل والمعايير التي تصنع منتجًا موثوقًا.</p>
+            <h3 data-i18n="value1Title">الجودة</h3>
+            <p data-i18n="value1Text">اهتمام متواصل بالتفاصيل والمعايير التي تصنع منتجًا موثوقًا.</p>
           </article>
 
           <article class="value">
             <div class="number">02</div>
-            <h3>الأداء</h3>
-            <p>حلول وهوية مصممة لتمنح العميل ثقة أكبر في كل استخدام.</p>
+            <h3 data-i18n="value2Title">الأداء</h3>
+            <p data-i18n="value2Text">حلول وهوية مصممة لتمنح العميل ثقة أكبر في كل استخدام.</p>
           </article>
 
           <article class="value">
             <div class="number">03</div>
-            <h3>الطموح</h3>
-            <p>نتطلع إلى بناء علامة قوية بحضور واضح في سوق الطاقة.</p>
+            <h3 data-i18n="value3Title">الطموح</h3>
+            <p data-i18n="value3Text">نتطلع إلى بناء علامة قوية بحضور واضح في سوق الطاقة.</p>
           </article>
         </div>
       </div>
@@ -375,35 +390,118 @@
     <section class="products" id="products">
       <div class="container">
         <div class="section-heading">
-          <h2>منتجاتنا</h2>
-          <p>ستُضاف صور العبوات ومواصفات كل منتج هنا في المرحلة القادمة.</p>
+          <h2 data-i18n="productsTitle">منتجاتنا</h2>
+          <p data-i18n="productsIntro">ستُضاف صور العبوات ومواصفات كل منتج هنا في المرحلة القادمة.</p>
         </div>
 
         <div class="product-grid">
           <article class="product-card">
             <div class="product-icon">01</div>
-            <h3>مجموعة PetroYAM</h3>
-            <p>صفحة مخصصة لعرض المنتج الأول وصورته ومواصفاته عند تجهيزها.</p>
+            <h3 data-i18n="product1Title">مجموعة PetroYAM</h3>
+            <p data-i18n="product1Text">مساحة مخصصة لعرض المنتج الأول وصورته ومواصفاته.</p>
           </article>
 
           <article class="product-card">
             <div class="product-icon">02</div>
-            <h3>مجموعة PetroYAM</h3>
-            <p>صفحة مخصصة لعرض المنتج الثاني وصورته ومواصفاته عند تجهيزها.</p>
+            <h3 data-i18n="product2Title">مجموعة PetroYAM</h3>
+            <p data-i18n="product2Text">مساحة مخصصة لعرض المنتج الثاني وصورته ومواصفاته.</p>
           </article>
 
           <article class="product-card">
             <div class="product-icon">03</div>
-            <h3>مجموعة PetroYAM</h3>
-            <p>صفحة مخصصة لعرض المنتج الثالث وصورته ومواصفاته عند تجهيزها.</p>
+            <h3 data-i18n="product3Title">مجموعة PetroYAM</h3>
+            <p data-i18n="product3Text">مساحة مخصصة لعرض المنتج الثالث وصورته ومواصفاته.</p>
           </article>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    © 2026 PETROYAM — جميع الحقوق محفوظة.
-  </footer>
+  <footer data-i18n="footer">© 2026 PETROYAM — جميع الحقوق محفوظة.</footer>
+
+  <script>
+    const translations = {
+      ar: {
+        navAbout: "من نحن",
+        navValues: "قيمنا",
+        navProducts: "منتجاتنا",
+        heroText: "هوية طاقة حديثة مبنية على الثقة، الجودة، والأداء الذي يمكن الاعتماد عليه.",
+        heroButton: "اكتشف PetroYAM",
+        aboutTitle: "طاقة بثقة",
+        aboutText1: "PetroYAM هي علامة تجمع بين الهوية الاحترافية والطموح الواضح: تقديم حلول ومنتجات تواكب احتياجات السوق بمعايير عالية من الجودة والموثوقية.",
+        aboutText2: "نؤمن بأن كل تفصيل يصنع فرقًا، من جودة المنتج إلى التجربة التي نقدمها لعملائنا.",
+        valuesTitle: "ما الذي يمثل PetroYAM؟",
+        valuesIntro: "أسس واضحة نبني عليها حضورنا ومنتجاتنا.",
+        value1Title: "الجودة",
+        value1Text: "اهتمام متواصل بالتفاصيل والمعايير التي تصنع منتجًا موثوقًا.",
+        value2Title: "الأداء",
+        value2Text: "حلول وهوية مصممة لتمنح العميل ثقة أكبر في كل استخدام.",
+        value3Title: "الطموح",
+        value3Text: "نتطلع إلى بناء علامة قوية بحضور واضح في سوق الطاقة.",
+        productsTitle: "منتجاتنا",
+        productsIntro: "ستُضاف صور العبوات ومواصفات كل منتج هنا في المرحلة القادمة.",
+        product1Title: "مجموعة PetroYAM",
+        product1Text: "مساحة مخصصة لعرض المنتج الأول وصورته ومواصفاته.",
+        product2Title: "مجموعة PetroYAM",
+        product2Text: "مساحة مخصصة لعرض المنتج الثاني وصورته ومواصفاته.",
+        product3Title: "مجموعة PetroYAM",
+        product3Text: "مساحة مخصصة لعرض المنتج الثالث وصورته ومواصفاته.",
+        footer: "© 2026 PETROYAM — جميع الحقوق محفوظة."
+      },
+      en: {
+        navAbout: "About Us",
+        navValues: "Our Values",
+        navProducts: "Products",
+        heroText: "A modern energy identity built on trust, quality, and dependable performance.",
+        heroButton: "Discover PetroYAM",
+        aboutTitle: "Energy with Confidence",
+        aboutText1: "PetroYAM combines a professional identity with a clear ambition: delivering solutions and products that meet market needs through quality and reliability.",
+        aboutText2: "We believe every detail matters, from product quality to the experience we provide for our customers.",
+        valuesTitle: "What PetroYAM Stands For",
+        valuesIntro: "Clear principles that guide our brand and our products.",
+        value1Title: "Quality",
+        value1Text: "Continual attention to details and standards that create a trusted product.",
+        value2Title: "Performance",
+        value2Text: "Solutions and an identity designed to inspire confidence in every use.",
+        value3Title: "Ambition",
+        value3Text: "We aim to build a strong brand with a clear presence in the energy market.",
+        productsTitle: "Our Products",
+        productsIntro: "Product images and specifications will be added here in the next stage.",
+        product1Title: "PetroYAM Range",
+        product1Text: "A dedicated space for the first product, its image, and specifications.",
+        product2Title: "PetroYAM Range",
+        product2Text: "A dedicated space for the second product, its image, and specifications.",
+        product3Title: "PetroYAM Range",
+        product3Text: "A dedicated space for the third product, its image, and specifications.",
+        footer: "© 2026 PETROYAM — All rights reserved."
+      }
+    };
+
+    let currentLanguage = localStorage.getItem("petroyamLanguage") || "ar";
+
+    function setLanguage(language) {
+      currentLanguage = language;
+      document.documentElement.lang = language;
+      document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+      document.title = language === "ar"
+        ? "PetroYAM | قوة تعتمد عليها"
+        : "PetroYAM | Power You Can Trust";
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        element.textContent = translations[language][element.dataset.i18n];
+      });
+
+      document.getElementById("languageButton").textContent =
+        language === "ar" ? "EN" : "AR";
+
+      localStorage.setItem("petroyamLanguage", language);
+    }
+
+    function toggleLanguage() {
+      setLanguage(currentLanguage === "ar" ? "en" : "ar");
+    }
+
+    setLanguage(currentLanguage);
+  </script>
 </body>
 </html>
