@@ -1,1 +1,409 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetroYAM | قوة تعتمد عليها</title>
+  <meta name="description" content="PetroYAM — علامة احترافية لحلول ومنتجات الطاقة.">
 
+  <style>
+    :root {
+      --navy: #071a2d;
+      --blue: #0c4d84;
+      --gold: #d6a33c;
+      --white: #ffffff;
+      --gray: #eef2f5;
+      --text: #263544;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--white);
+      color: var(--text);
+      font-family: Arial, Tahoma, sans-serif;
+    }
+
+    .container {
+      width: min(1140px, 91%);
+      margin: auto;
+    }
+
+    header {
+      background: rgba(7, 26, 45, .97);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      text-decoration: none;
+      color: var(--white);
+      direction: ltr;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo span { color: var(--gold); }
+
+    .links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .links a {
+      color: #d8e3ec;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    .links a:hover { color: var(--gold); }
+
+    .hero {
+      min-height: 635px;
+      overflow: hidden;
+      position: relative;
+      display: grid;
+      align-items: center;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(214,163,60,.25), transparent 28%),
+        radial-gradient(circle at 85% 80%, rgba(12,77,132,.85), transparent 32%),
+        linear-gradient(135deg, #061628 10%, #0a3155 100%);
+      color: var(--white);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.1);
+    }
+
+    .hero::before {
+      width: 500px;
+      height: 500px;
+      left: -180px;
+      top: -210px;
+    }
+
+    .hero::after {
+      width: 650px;
+      height: 650px;
+      right: -300px;
+      bottom: -360px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      padding: 95px 0;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      direction: ltr;
+    }
+
+    h1 {
+      margin: 18px 0;
+      font-size: clamp(56px, 9vw, 105px);
+      letter-spacing: 3px;
+      line-height: .95;
+      direction: ltr;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #dce7ef;
+      line-height: 1.9;
+      max-width: 590px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      color: var(--navy);
+      background: var(--gold);
+      text-decoration: none;
+      padding: 15px 28px;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: .2s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      background: #f0c45a;
+    }
+
+    section { padding: 92px 0; }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 35px;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: #647383;
+      line-height: 1.8;
+    }
+
+    .about { background: var(--gray); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .about h2 {
+      color: var(--navy);
+      font-size: 38px;
+      margin-top: 0;
+    }
+
+    .about p {
+      color: #50606f;
+      line-height: 2;
+      font-size: 17px;
+    }
+
+    .mark {
+      min-height: 315px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      direction: ltr;
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(7,26,45,.9), rgba(12,77,132,.78)),
+        #0b3d68;
+      box-shadow: 0 20px 40px rgba(7,26,45,.2);
+    }
+
+    .mark strong {
+      font-size: clamp(44px, 6vw, 72px);
+      letter-spacing: 2px;
+    }
+
+    .mark strong span { color: var(--gold); }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .value {
+      border: 1px solid #e1e7ec;
+      border-top: 4px solid var(--gold);
+      padding: 28px;
+      border-radius: 7px;
+      background: #fff;
+    }
+
+    .number {
+      color: var(--gold);
+      font-size: 30px;
+      font-weight: bold;
+      direction: ltr;
+    }
+
+    .value h3 {
+      color: var(--navy);
+      margin: 12px 0 8px;
+    }
+
+    .value p {
+      margin: 0;
+      color: #687684;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .products {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .products .section-heading h2 { color: var(--white); }
+    .products .section-heading p { color: #c5d2de; }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .product-card {
+      padding: 32px 27px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 8px;
+      background: rgba(255,255,255,.05);
+    }
+
+    .product-icon {
+      color: var(--gold);
+      font-size: 27px;
+      font-weight: bold;
+    }
+
+    .product-card h3 { margin: 20px 0 12px; }
+
+    .product-card p {
+      color: #c7d3dc;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      background: #03101d;
+      color: #9eb0bf;
+      padding: 27px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 760px) {
+      .links { display: none; }
+      .nav { justify-content: center; }
+      .hero { min-height: 560px; }
+      .about-grid,
+      .values,
+      .product-grid { grid-template-columns: 1fr; }
+      section { padding: 65px 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#">PETRO<span>YAM</span></a>
+      <nav class="links">
+        <a href="#about">من نحن</a>
+        <a href="#values">قيمنا</a>
+        <a href="#products">منتجاتنا</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="eyebrow">PERFORMANCE · QUALITY · TRUST</div>
+        <h1>PETROYAM</h1>
+        <p>هوية طاقة حديثة مبنية على الثقة، الجودة، والأداء الذي يمكن الاعتماد عليه.</p>
+        <a class="button" href="#about">اكتشف PetroYAM</a>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div>
+          <h2>طاقة بثقة</h2>
+          <p>
+            PetroYAM هي علامة تجمع بين الهوية الاحترافية والطموح الواضح:
+            تقديم حلول ومنتجات تواكب احتياجات السوق بمعايير عالية من الجودة والموثوقية.
+          </p>
+          <p>
+            نؤمن بأن كل تفصيل يصنع فرقًا، من جودة المنتج إلى التجربة التي نقدمها لعملائنا.
+          </p>
+        </div>
+
+        <div class="mark">
+          <strong>PETRO<span>YAM</span></strong>
+        </div>
+      </div>
+    </section>
+
+    <section id="values">
+      <div class="container">
+        <div class="section-heading">
+          <h2>ما الذي يمثل PetroYAM؟</h2>
+          <p>أسس واضحة نبني عليها حضورنا ومنتجاتنا.</p>
+        </div>
+
+        <div class="values">
+          <article class="value">
+            <div class="number">01</div>
+            <h3>الجودة</h3>
+            <p>اهتمام متواصل بالتفاصيل والمعايير التي تصنع منتجًا موثوقًا.</p>
+          </article>
+
+          <article class="value">
+            <div class="number">02</div>
+            <h3>الأداء</h3>
+            <p>حلول وهوية مصممة لتمنح العميل ثقة أكبر في كل استخدام.</p>
+          </article>
+
+          <article class="value">
+            <div class="number">03</div>
+            <h3>الطموح</h3>
+            <p>نتطلع إلى بناء علامة قوية بحضور واضح في سوق الطاقة.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="products" id="products">
+      <div class="container">
+        <div class="section-heading">
+          <h2>منتجاتنا</h2>
+          <p>ستُضاف صور العبوات ومواصفات كل منتج هنا في المرحلة القادمة.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-icon">01</div>
+            <h3>مجموعة PetroYAM</h3>
+            <p>صفحة مخصصة لعرض المنتج الأول وصورته ومواصفاته عند تجهيزها.</p>
+          </article>
+
+          <article class="product-card">
+            <div class="product-icon">02</div>
+            <h3>مجموعة PetroYAM</h3>
+            <p>صفحة مخصصة لعرض المنتج الثاني وصورته ومواصفاته عند تجهيزها.</p>
+          </article>
+
+          <article class="product-card">
+            <div class="product-icon">03</div>
+            <h3>مجموعة PetroYAM</h3>
+            <p>صفحة مخصصة لعرض المنتج الثالث وصورته ومواصفاته عند تجهيزها.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 PETROYAM — جميع الحقوق محفوظة.
+  </footer>
+</body>
+</html>
