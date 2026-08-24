@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PetroYAM | German Technology</title>
+<title>PetroYAM | Premium Automotive Lubricants</title>
 
-<meta name="description" content="PetroYAM — German Technology. Premium automotive lubricants, proudly made in the United Arab Emirates.">
+<meta name="description" content="PetroYAM — Premium automotive lubricants, proudly made in the United Arab Emirates.">
 
 <style>
 :root{
@@ -98,13 +98,6 @@ header{
   color:white;
   font-size:15px;
   letter-spacing:2px;
-}
-
-.brand-text span{
-  color:var(--gold-light);
-  font-size:10px;
-  letter-spacing:1.5px;
-  margin-top:5px;
 }
 
 .nav-right{
@@ -201,17 +194,21 @@ header{
   margin-bottom:18px;
 }
 
-.hero h1{
-  color:white;
-  font-size:clamp(55px,9vw,100px);
-  line-height:.95;
-  letter-spacing:-4px;
-  margin-bottom:18px;
-  font-weight:900;
+.hero-logo{
+  display:flex;
+  align-items:center;
+  margin-bottom:28px;
 }
 
-.hero h1 span{
-  color:var(--gold);
+.hero-logo img{
+  width:min(470px,82vw);
+  height:auto;
+  display:block;
+  object-fit:contain;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
 }
 
 .hero-subtitle{
@@ -264,28 +261,6 @@ header{
 .btn-outline:hover{
   border-color:var(--gold);
   color:var(--gold-light);
-}
-
-.hero-badge{
-  margin-top:38px;
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  color:#e9eef2;
-  font-size:14px;
-  padding:10px 16px;
-  border:1px solid rgba(217,169,40,.35);
-  background:rgba(255,255,255,.035);
-  border-radius:4px;
-}
-
-.hero-badge:before{
-  content:"";
-  width:8px;
-  height:8px;
-  background:var(--gold);
-  border-radius:50%;
-  box-shadow:0 0 14px rgba(217,169,40,.8);
 }
 
 /* ================= MADE IN UAE ================= */
@@ -455,11 +430,6 @@ section{
   overflow:hidden;
   background:#f5f5f5;
 }
-
-/*
-  The four products are cropped from the single uploaded
-  product image. Each card displays a different quarter.
-*/
 
 .product-image:before{
   content:"";
@@ -790,10 +760,6 @@ footer{
     font-size:12px;
   }
 
-  .brand-text span{
-    font-size:8px;
-  }
-
   .hero{
     min-height:720px;
   }
@@ -802,9 +768,8 @@ footer{
     padding-top:80px;
   }
 
-  .hero h1{
-    font-size:58px;
-    letter-spacing:-3px;
+  .hero-logo img{
+    width:min(390px,88vw);
   }
 
   .hero-subtitle{
@@ -860,7 +825,6 @@ footer{
       <img src="petroyam-logo.jpg" alt="PetroYAM Logo">
       <div class="brand-text">
         <strong>PETROYAM</strong>
-        <span>GERMAN TECHNOLOGY</span>
       </div>
     </a>
 
@@ -894,17 +858,16 @@ footer{
       PERFORMANCE · PROTECTION · CONFIDENCE
     </div>
 
-    <h1>
-      PETRO<span>YAM</span>
-    </h1>
+    <div class="hero-logo">
+      <img src="petroyam-logo.jpg" alt="PetroYAM">
+    </div>
 
     <div class="hero-subtitle" data-i18n="heroTitle">
       زيوت مصممة للأداء. ثقة تدوم.
     </div>
 
     <p class="hero-text" data-i18n="heroText">
-      حلول متطورة لزيوت محركات السيارات، تجمع بين الأداء الموثوق
-      والهوية الحديثة والتقنية الألمانية.
+      حلول متطورة لزيوت محركات السيارات، تجمع بين الأداء الموثوق والهوية الحديثة.
     </p>
 
     <div class="hero-actions">
@@ -915,10 +878,6 @@ footer{
       <a href="#about" class="btn btn-outline" data-i18n="heroAbout">
         اكتشف PetroYAM
       </a>
-    </div>
-
-    <div class="hero-badge">
-      GERMAN TECHNOLOGY
     </div>
 
   </div>
@@ -937,9 +896,7 @@ footer{
       صنع بفخر في الإمارات العربية المتحدة
     </strong>
 
-    <span>
-      ·
-    </span>
+    <span>·</span>
 
     <span>
       Proudly Made in the United Arab Emirates
@@ -962,19 +919,15 @@ footer{
       </div>
 
       <h2 data-i18n="aboutTitle">
-        تقنية ألمانية. هوية إماراتية.
+        هوية إماراتية. أداء موثوق.
       </h2>
 
       <p data-i18n="aboutText1">
-        PetroYAM هي علامة متخصصة في زيوت محركات السيارات،
-        تأسست برؤية واضحة لتقديم منتجات تجمع بين الجودة والأداء
-        والاعتمادية.
+        PetroYAM هي علامة متخصصة في زيوت محركات السيارات، تأسست برؤية واضحة لتقديم منتجات تجمع بين الجودة والأداء والاعتمادية.
       </p>
 
       <p data-i18n="aboutText2">
-        نركز على تطوير مجموعة من زيوت المحركات بمواصفات واضحة
-        ومعلومات فنية دقيقة تساعد العميل على اختيار المنتج المناسب
-        لاحتياجاته.
+        نركز على تطوير مجموعة من زيوت المحركات بمواصفات واضحة ومعلومات فنية دقيقة تساعد العميل على اختيار المنتج المناسب لاحتياجاته.
       </p>
 
     </div>
@@ -984,12 +937,12 @@ footer{
       <div class="about-panel-content">
 
         <strong>
-          GERMAN<br>
-          TECHNOLOGY
+          PERFORMANCE<br>
+          ENGINEERED
         </strong>
 
         <span>
-          PERFORMANCE ENGINEERED
+          AUTOMOTIVE LUBRICANTS
         </span>
 
       </div>
@@ -1018,15 +971,13 @@ footer{
       </h2>
 
       <p data-i18n="productsIntro">
-        مجموعة من زيوت محركات السيارات بمواصفات فنية واضحة،
-        مصممة لتلبية احتياجات مختلفة من الأداء والحماية.
+        مجموعة من زيوت محركات السيارات بمواصفات فنية واضحة، مصممة لتلبية احتياجات مختلفة من الأداء والحماية.
       </p>
 
     </div>
 
 
     <div class="products-grid">
-
 
       <!-- PRIME -->
 
@@ -1174,8 +1125,7 @@ footer{
         </h3>
 
         <p data-i18n="quality1Text">
-          اهتمام بالتفاصيل والمواصفات الفنية التي تصنع منتجاً
-          موثوقاً وواضح المعلومات.
+          اهتمام بالتفاصيل والمواصفات الفنية التي تصنع منتجاً موثوقاً وواضح المعلومات.
         </p>
 
       </div>
@@ -1188,8 +1138,7 @@ footer{
         </h3>
 
         <p data-i18n="quality2Text">
-          منتجات مصممة لتوفير أداء موثوق وحماية مناسبة وفق
-          درجة اللزوجة ومستوى الأداء المحدد لكل منتج.
+          منتجات مصممة لتوفير أداء موثوق وحماية مناسبة وفق درجة اللزوجة ومستوى الأداء المحدد لكل منتج.
         </p>
 
       </div>
@@ -1202,8 +1151,7 @@ footer{
         </h3>
 
         <p data-i18n="quality3Text">
-          معلومات فنية واضحة تساعد العملاء على معرفة المنتج
-          وفهم مواصفاته قبل الاختيار.
+          معلومات فنية واضحة تساعد العملاء على معرفة المنتج وفهم مواصفاته قبل الاختيار.
         </p>
 
       </div>
@@ -1230,8 +1178,7 @@ footer{
         </h2>
 
         <p data-i18n="contactText">
-          لمعرفة المزيد عن منتجات PetroYAM ومواصفاتها،
-          تواصل معنا وسنكون سعداء بمساعدتك.
+          لمعرفة المزيد عن منتجات PetroYAM ومواصفاتها، تواصل معنا وسنكون سعداء بمساعدتك.
         </p>
 
       </div>
@@ -1310,8 +1257,7 @@ footer{
         </table>
 
         <div class="typical-note" data-i18n="typicalNote">
-          Typical Properties. Values shown are product technical data
-          and may be subject to applicable production specifications.
+          Typical Properties. Values shown are product technical data and may be subject to applicable production specifications.
         </div>
 
       </div>
@@ -1460,7 +1406,7 @@ const translations = {
     heroTitle:"زيوت مصممة للأداء. ثقة تدوم.",
 
     heroText:
-      "حلول متطورة لزيوت محركات السيارات، تجمع بين الأداء الموثوق والهوية الحديثة والتقنية الألمانية.",
+      "حلول متطورة لزيوت محركات السيارات، تجمع بين الأداء الموثوق والهوية الحديثة.",
 
     heroButton:"استكشف منتجاتنا",
     heroAbout:"اكتشف PetroYAM",
@@ -1468,7 +1414,7 @@ const translations = {
     madeIn:"صنع بفخر في الإمارات العربية المتحدة",
 
     aboutLabel:"ABOUT PETROYAM",
-    aboutTitle:"تقنية ألمانية. هوية إماراتية.",
+    aboutTitle:"هوية إماراتية. أداء موثوق.",
 
     aboutText1:
       "PetroYAM هي علامة متخصصة في زيوت محركات السيارات، تأسست برؤية واضحة لتقديم منتجات تجمع بين الجودة والأداء والاعتمادية.",
@@ -1529,7 +1475,7 @@ const translations = {
     heroTitle:"Engineered for Performance. Built for Confidence.",
 
     heroText:
-      "Advanced automotive engine lubricants combining dependable performance, modern identity and German Technology.",
+      "Advanced automotive engine lubricants combining dependable performance and modern identity.",
 
     heroButton:"Explore Products",
     heroAbout:"Discover PetroYAM",
@@ -1537,7 +1483,7 @@ const translations = {
     madeIn:"Proudly Made in the United Arab Emirates",
 
     aboutLabel:"ABOUT PETROYAM",
-    aboutTitle:"German Technology. UAE Identity.",
+    aboutTitle:"UAE Identity. Dependable Performance.",
 
     aboutText1:
       "PetroYAM is an automotive engine lubricant brand built with a clear vision: delivering products that combine quality, performance and reliability.",
@@ -1605,8 +1551,8 @@ function setLanguage(language){
 
   document.title =
     language === "ar"
-      ? "PetroYAM | German Technology"
-      : "PetroYAM | German Technology";
+      ? "PetroYAM | زيوت محركات عالية الجودة"
+      : "PetroYAM | Premium Automotive Lubricants";
 
   document.querySelectorAll("[data-i18n]").forEach(element => {
 
