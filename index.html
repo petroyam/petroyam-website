@@ -1,1371 +1,357 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>PetroYAM | قوة تعتمد عليها</title>
+  <meta name="description" content="PetroYAM — علامة احترافية لحلول ومنتجات الطاقة.">
 
 <style>
-:root{
-  --navy:#030b14;
-  --navy2:#071a2a;
-  --blue:#0b2942;
-  --gold:#d8ad4b;
-  --gold2:#f1d27a;
-  --white:#fff;
-  --text:#d7e1e9;
-  --muted:#9eb0be;
-  --line:rgba(255,255,255,.12);
-}
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--navy);
-  color:var(--white);
-  line-height:1.7;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-.container{
-  width:min(1180px,92%);
-  margin:auto;
-}
-
-/* ================= HEADER ================= */
-
-header{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:1000;
-  background:rgba(2,9,16,.82);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line);
-}
-
-.nav{
-  min-height:76px;
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-}
-
-.nav-actions{
-  display:flex;
-  align-items:center;
-  gap:28px;
-}
-
-.links{
-  display:flex;
-  gap:28px;
-}
-
-.links a{
-  color:#e7edf2;
-  font-size:14px;
-  transition:.25s;
-}
-
-.links a:hover{
-  color:var(--gold2);
-}
-
-.language-button{
-  border:1px solid rgba(255,255,255,.35);
-  background:transparent;
-  color:white;
-  padding:7px 13px;
-  border-radius:4px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.language-button:hover{
-  background:var(--gold);
-  border-color:var(--gold);
-  color:var(--navy);
-}
-
-/* ================= HERO ================= */
-
-.hero{
-  min-height:100vh;
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  background:
-    radial-gradient(
-      ellipse at 50% 42%,
-      rgba(20,83,120,.58) 0%,
-      rgba(7,30,48,.72) 30%,
-      rgba(2,10,17,.96) 72%
-    ),
-    linear-gradient(
-      135deg,
-      #02070c,
-      #0a2438,
-      #02070c
-    );
-}
-
-/* ميكانيكا / محرك / زيت - بدون سيارات */
-
-.hero::before{
-  content:"";
-  position:absolute;
-  width:850px;
-  height:850px;
-  border-radius:50%;
-  border:1px solid rgba(216,173,75,.12);
-
-  box-shadow:
-    0 0 0 45px rgba(216,173,75,.025),
-    0 0 0 95px rgba(216,173,75,.018),
-    0 0 0 150px rgba(216,173,75,.012);
-
-  opacity:.9;
-}
-
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-
-  background:
-    linear-gradient(
-      120deg,
-      transparent 0%,
-      rgba(255,255,255,.025) 25%,
-      transparent 26%,
-      transparent 65%,
-      rgba(216,173,75,.035) 66%,
-      transparent 67%
-    ),
-    repeating-linear-gradient(
-      115deg,
-      transparent 0 70px,
-      rgba(255,255,255,.015) 71px,
-      transparent 72px
-    );
-
-  opacity:.8;
-}
-
-.mechanical{
-  position:absolute;
-  inset:0;
-  overflow:hidden;
-  opacity:.55;
-}
-
-.gear{
-  position:absolute;
-  border:2px solid rgba(150,180,200,.10);
-  border-radius:50%;
-}
-
-.gear.one{
-  width:330px;
-  height:330px;
-  left:-80px;
-  top:20%;
-}
-
-.gear.two{
-  width:220px;
-  height:220px;
-  right:-50px;
-  bottom:15%;
-}
-
-.gear.three{
-  width:120px;
-  height:120px;
-  left:18%;
-  bottom:12%;
-}
-
-.oil-line{
-  position:absolute;
-  width:280px;
-  height:2px;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    rgba(216,173,75,.4),
-    transparent
-  );
-  transform:rotate(-25deg);
-}
-
-.oil-line.one{
-  right:10%;
-  top:30%;
-}
-
-.oil-line.two{
-  left:8%;
-  bottom:32%;
-  transform:rotate(25deg);
-}
-
-.hero-content{
-  position:relative;
-  z-index:5;
-  width:min(950px,94%);
-  text-align:center;
-  padding-top:80px;
-}
-
-/* اللوغو */
-
-.hero-logo{
-  width:min(680px,88vw);
-  max-height:310px;
-  object-fit:contain;
-  display:block;
-  margin:0 auto 24px;
-
-  /*
-    يجعل الصورة تندمج بصريًا مع الخلفية
-    بدل أن تبدو كصورة داخل صندوق
-  */
-
-  mix-blend-mode:screen;
-
-  filter:
-    brightness(1.08)
-    contrast(1.08)
-    drop-shadow(0 0 18px rgba(216,173,75,.20))
-    drop-shadow(0 25px 45px rgba(0,0,0,.7));
-}
-
-.origin{
-  color:var(--gold2);
-  font-size:16px;
-  margin-bottom:18px;
-}
-
-.hero h1{
-  font-size:clamp(34px,5vw,58px);
-  line-height:1.15;
-  margin-bottom:14px;
-}
-
-.hero p{
-  max-width:700px;
-  margin:auto;
-  color:var(--text);
-  font-size:18px;
-}
-
-.button{
-  display:inline-block;
-  margin-top:30px;
-  padding:14px 32px;
-  background:var(--gold);
-  color:var(--navy);
-  border-radius:4px;
-  font-weight:bold;
-  transition:.25s;
-}
-
-.button:hover{
-  background:var(--gold2);
-  transform:translateY(-3px);
-}
-
-/* ================= SECTIONS ================= */
-
-section{
-  padding:95px 0;
-}
-
-.section-heading{
-  text-align:center;
-  max-width:760px;
-  margin:0 auto 55px;
-}
-
-.eyebrow{
-  color:var(--gold2);
-  font-size:12px;
-  letter-spacing:2px;
-  font-weight:bold;
-}
-
-.section-heading h2{
-  font-size:42px;
-  margin:8px 0 12px;
-}
-
-.section-heading p{
-  color:var(--muted);
-}
-
-/* ================= ABOUT ================= */
-
-.about{
-  background:
-    linear-gradient(135deg,#061522,#091f32);
-}
-
-.about-grid{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:60px;
-  align-items:center;
-}
-
-.about-copy h2{
-  font-size:42px;
-  margin:8px 0 20px;
-}
-
-.about-copy p{
-  color:var(--muted);
-  margin-bottom:18px;
-}
-
-.about-mark{
-  min-height:330px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(216,173,75,.14),
-      transparent 50%
-    ),
-    linear-gradient(
-      145deg,
-      #0b2942,
-      #030c15
-    );
-
-  border:1px solid var(--line);
-}
-
-.about-mark span{
-  font-size:42px;
-  font-weight:900;
-  letter-spacing:3px;
-}
-
-.about-mark span b{
-  color:var(--gold2);
-}
-
-/* ================= VALUES ================= */
-
-.values{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
-}
-
-.value{
-  padding:32px;
-  background:#0a2033;
-  border:1px solid var(--line);
-  transition:.25s;
-}
-
-.value:hover{
-  transform:translateY(-6px);
-  border-color:rgba(216,173,75,.45);
-}
-
-.value h3{
-  font-size:24px;
-  margin-bottom:10px;
-}
-
-.value p{
-  color:var(--muted);
-}
-
-/* ================= PRODUCTS ================= */
-
-.products{
-  background:
-    linear-gradient(
-      180deg,
-      #061522,
-      #030c15
-    );
-}
-
-.product-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:22px;
-}
-
-.product-card{
-  background:
-    linear-gradient(
-      145deg,
-      #0c2941,
-      #071522
-    );
-
-  border:1px solid var(--line);
-  padding:18px;
-  transition:.3s;
-}
-
-.product-card:hover{
-  transform:translateY(-7px);
-  border-color:rgba(216,173,75,.5);
-}
-
-/*
-  الصورة الأصلية تحتوي المنتجات الأربعة.
-  كل كارت يعرض الجزء الخاص بمنتجه.
-*/
-
-.product-image-box{
-  height:320px;
-  overflow:hidden;
-  position:relative;
-
-  background:
-    radial-gradient(
-      circle,
-      #173d58,
-      #07121d 72%
-    );
-
-  margin-bottom:20px;
-}
-
-.product-image{
-  position:absolute;
-  top:0;
-  height:100%;
-  width:400%;
-  max-width:none;
-  object-fit:contain;
-}
-
-/* ترتيب المنتجات داخل الصورة */
-
-.product-1 .product-image{
-  left:0;
-}
-
-.product-2 .product-image{
-  left:-100%;
-}
-
-.product-3 .product-image{
-  left:-200%;
-}
-
-.product-4 .product-image{
-  left:-300%;
-}
-
-.product-name{
-  color:var(--gold2);
-  font-size:12px;
-  font-weight:bold;
-  letter-spacing:1.5px;
-}
-
-.product-card h3{
-  font-size:21px;
-  margin:4px 0 8px;
-}
-
-.product-card p{
-  color:var(--muted);
-  font-size:14px;
-}
-
-.spec-button{
-  display:block;
-  text-align:center;
-  margin-top:20px;
-  padding:10px;
-
-  border:1px solid rgba(216,173,75,.45);
-  color:var(--gold2);
-
-  cursor:pointer;
-  transition:.2s;
-}
-
-.spec-button:hover{
-  background:var(--gold);
-  color:var(--navy);
-}
-
-/* ================= SPECIFICATIONS ================= */
-
-.product-details{
-  display:none;
-  margin-top:45px;
-  padding:35px;
-
-  background:#030b13;
-  border:1px solid var(--line);
-}
-
-.product-details.active{
-  display:block;
-}
-
-.details-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:25px;
-  gap:20px;
-}
-
-.details-header h3{
-  font-size:28px;
-}
-
-.close-button{
-  background:transparent;
-  border:1px solid var(--line);
-  color:white;
-  padding:8px 15px;
-  cursor:pointer;
-}
-
-.spec-table{
-  width:100%;
-  border-collapse:collapse;
-}
-
-.spec-table th,
-.spec-table td{
-  padding:12px;
-  border-bottom:1px solid var(--line);
-  text-align:start;
-}
-
-.spec-table th{
-  color:var(--gold2);
-  font-size:13px;
-}
-
-.spec-table td{
-  color:#d8e2e9;
-}
-
-/* ================= CONTACT ================= */
-
-.contact{
-  background:#061421;
-}
-
-.contact-box{
-  max-width:800px;
-  margin:auto;
-  padding:65px 30px;
-  text-align:center;
-
-  background:
-    linear-gradient(
-      145deg,
-      #0c2941,
-      #061421
-    );
-
-  border:1px solid var(--line);
-}
-
-.contact-box h2{
-  font-size:40px;
-  margin-bottom:12px;
-}
-
-.contact-box p{
-  color:var(--muted);
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-  text-align:center;
-  padding:30px;
-  color:#8294a2;
-  font-size:13px;
-  border-top:1px solid var(--line);
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:950px){
-
-  .product-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .values{
-    grid-template-columns:1fr;
-  }
-
-  .about-grid{
-    grid-template-columns:1fr;
-  }
-}
-
-@media(max-width:650px){
-
-  .links{
-    display:none;
-  }
-
-  .nav{
-    justify-content:center;
-  }
-
-  .hero-logo{
-    width:90vw;
-    max-height:250px;
-  }
-
-  .hero h1{
-    font-size:36px;
-  }
-
-  .hero p{
-    font-size:16px;
-  }
-
-  .product-grid{
-    grid-template-columns:1fr;
-  }
-
-  .product-image-box{
-    height:350px;
-  }
-
-  .details-header{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-  section{
-    padding:70px 0;
-  }
+:root {
+@@ -17,7 +16,6 @@
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+@@ -49,16 +47,22 @@
+}
+
+.logo {
+      text-decoration: none;
+color: var(--white);
+direction: ltr;
+font-size: 28px;
+font-weight: 900;
+letter-spacing: 1px;
+      text-decoration: none;
+}
+
+.logo span { color: var(--gold); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+.links {
+display: flex;
+gap: 25px;
+@@ -72,6 +76,22 @@
+
+.links a:hover { color: var(--gold); }
+
+    .language-button {
+      border: 1px solid rgba(255,255,255,.45);
+      background: transparent;
+      color: var(--white);
+      border-radius: 4px;
+      padding: 7px 11px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .language-button:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--navy);
+    }
+
+.hero {
+min-height: 635px;
+overflow: hidden;
+@@ -114,6 +134,11 @@
+padding: 95px 0;
+}
+
+    [dir="ltr"] .hero-content,
+    [dir="ltr"] .about-copy {
+      text-align: left;
+    }
+
+.eyebrow {
+color: var(--gold);
+font-size: 13px;
+@@ -146,12 +171,6 @@
+padding: 15px 28px;
+border-radius: 4px;
+font-weight: bold;
+      transition: .2s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      background: #f0c45a;
+}
+
+section { padding: 92px 0; }
+@@ -201,9 +220,7 @@
+place-items: center;
+direction: ltr;
+color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(7,26,45,.9), rgba(12,77,132,.78)),
+        #0b3d68;
+      background: linear-gradient(135deg, rgba(7,26,45,.9), rgba(12,77,132,.78));
+box-shadow: 0 20px 40px rgba(7,26,45,.2);
+}
+
+@@ -214,7 +231,8 @@
+
+.mark strong span { color: var(--gold); }
+
+    .values {
+    .values,
+    .product-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 22px;
+@@ -255,12 +273,6 @@
+.products .section-heading h2 { color: var(--white); }
+.products .section-heading p { color: #c5d2de; }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+.product-card {
+padding: 32px 27px;
+border: 1px solid rgba(255,255,255,.14);
+@@ -272,6 +284,7 @@
+color: var(--gold);
+font-size: 27px;
+font-weight: bold;
+      direction: ltr;
+}
+
+.product-card h3 { margin: 20px 0 12px; }
+@@ -292,11 +305,9 @@
+
+@media (max-width: 760px) {
+.links { display: none; }
+      .nav { justify-content: center; }
+      .nav { justify-content: space-between; }
+.hero { min-height: 560px; }
+      .about-grid,
+      .values,
+      .product-grid { grid-template-columns: 1fr; }
+      .about-grid, .values, .product-grid { grid-template-columns: 1fr; }
+section { padding: 65px 0; }
 }
 </style>
-</head>
-
-
-<body>
-
+@@ -306,11 +317,15 @@
 <header>
-  <div class="container nav">
-
-    <div class="nav-actions">
-
+<div class="container nav">
+<a class="logo" href="#">PETRO<span>YAM</span></a>
       <nav class="links">
-        <a href="#home" data-i18n="home">الرئيسية</a>
-        <a href="#about" data-i18n="about">من نحن</a>
-        <a href="#values" data-i18n="values">قيمنا</a>
-        <a href="#products" data-i18n="products">منتجاتنا</a>
-        <a href="#contact" data-i18n="contact">تواصل معنا</a>
+        <a href="#about">من نحن</a>
+        <a href="#values">قيمنا</a>
+        <a href="#products">منتجاتنا</a>
       </nav>
 
-      <button
-        class="language-button"
-        id="languageButton"
-        onclick="toggleLanguage()">
-        EN
-      </button>
-
-    </div>
-
-  </div>
+      <div class="nav-actions">
+        <nav class="links">
+          <a href="#about" data-i18n="navAbout">من نحن</a>
+          <a href="#values" data-i18n="navValues">قيمنا</a>
+          <a href="#products" data-i18n="navProducts">منتجاتنا</a>
+        </nav>
+        <button class="language-button" id="languageButton" onclick="toggleLanguage()">EN</button>
+      </div>
+</div>
 </header>
 
-
-<main>
-
-<!-- ================= HOME ================= -->
-
-<section class="hero" id="home">
-
-  <div class="mechanical">
-    <div class="gear one"></div>
-    <div class="gear two"></div>
-    <div class="gear three"></div>
-
-    <div class="oil-line one"></div>
-    <div class="oil-line two"></div>
-  </div>
-
-
-  <div class="hero-content">
-
-    <img
-      src="petroyam-logo.jpg"
-      alt="PetroYAM"
-      class="hero-logo">
-
-    <div class="origin" data-i18n="origin">
-      صنع بفخر في الإمارات العربية المتحدة
-    </div>
-
-    <h1 data-i18n="heroTitle">
-      أداء صُمم ليُعتمد عليه
-    </h1>
-
-    <p data-i18n="heroText">
-      زيوت محركات تجمع بين الجودة والأداء والموثوقية.
-    </p>
-
-    <a
-      href="#products"
-      class="button"
-      data-i18n="explore">
-      استكشف منتجاتنا
-    </a>
-
-  </div>
-
+@@ -319,20 +334,20 @@
+<div class="container hero-content">
+<div class="eyebrow">PERFORMANCE · QUALITY · TRUST</div>
+<h1>PETROYAM</h1>
+        <p>هوية طاقة حديثة مبنية على الثقة، الجودة، والأداء الذي يمكن الاعتماد عليه.</p>
+        <a class="button" href="#about">اكتشف PetroYAM</a>
+        <p data-i18n="heroText">هوية طاقة حديثة مبنية على الثقة، الجودة، والأداء الذي يمكن الاعتماد عليه.</p>
+        <a class="button" href="#about" data-i18n="heroButton">اكتشف PetroYAM</a>
+</div>
 </section>
-
-
-<!-- ================= ABOUT ================= -->
 
 <section class="about" id="about">
-
-  <div class="container about-grid">
-
-    <div class="about-copy">
-
-      <div class="eyebrow">PETROYAM</div>
-
-      <h2 data-i18n="aboutTitle">
-        جودة تبني الثقة
-      </h2>
-
-      <p data-i18n="aboutText1">
-        PetroYAM هي علامة متخصصة في زيوت المحركات، تجمع بين الهوية الاحترافية والطموح الواضح لتقديم منتجات موثوقة تلبي احتياجات السوق.
-      </p>
-
-      <p data-i18n="aboutText2">
-        نركز على جودة المنتج والأداء والاهتمام بالتفاصيل، مع تطوير مجموعة منتجات قابلة للتوسع مستقبلًا.
-      </p>
-
-    </div>
-
-
-    <div class="about-mark">
-      <span>PETRO<b>YAM</b></span>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= VALUES ================= -->
-
+<div class="container about-grid">
+        <div>
+          <h2>طاقة بثقة</h2>
+          <p>
+        <div class="about-copy">
+          <h2 data-i18n="aboutTitle">طاقة بثقة</h2>
+          <p data-i18n="aboutText1">
+PetroYAM هي علامة تجمع بين الهوية الاحترافية والطموح الواضح:
+تقديم حلول ومنتجات تواكب احتياجات السوق بمعايير عالية من الجودة والموثوقية.
+</p>
+          <p>
+          <p data-i18n="aboutText2">
+نؤمن بأن كل تفصيل يصنع فرقًا، من جودة المنتج إلى التجربة التي نقدمها لعملائنا.
+</p>
+</div>
+@@ -346,27 +361,27 @@ <h2>طاقة بثقة</h2>
 <section id="values">
+<div class="container">
+<div class="section-heading">
+          <h2>ما الذي يمثل PetroYAM؟</h2>
+          <p>أسس واضحة نبني عليها حضورنا ومنتجاتنا.</p>
+          <h2 data-i18n="valuesTitle">ما الذي يمثل PetroYAM؟</h2>
+          <p data-i18n="valuesIntro">أسس واضحة نبني عليها حضورنا ومنتجاتنا.</p>
+</div>
 
-  <div class="container">
+<div class="values">
+<article class="value">
+<div class="number">01</div>
+            <h3>الجودة</h3>
+            <p>اهتمام متواصل بالتفاصيل والمعايير التي تصنع منتجًا موثوقًا.</p>
+            <h3 data-i18n="value1Title">الجودة</h3>
+            <p data-i18n="value1Text">اهتمام متواصل بالتفاصيل والمعايير التي تصنع منتجًا موثوقًا.</p>
+</article>
 
-    <div class="section-heading">
+<article class="value">
+<div class="number">02</div>
+            <h3>الأداء</h3>
+            <p>حلول وهوية مصممة لتمنح العميل ثقة أكبر في كل استخدام.</p>
+            <h3 data-i18n="value2Title">الأداء</h3>
+            <p data-i18n="value2Text">حلول وهوية مصممة لتمنح العميل ثقة أكبر في كل استخدام.</p>
+</article>
 
-      <div class="eyebrow">OUR VALUES</div>
-
-      <h2 data-i18n="valuesTitle">
-        ما الذي يمثل PetroYAM؟
-      </h2>
-
-      <p data-i18n="valuesIntro">
-        مبادئ واضحة تقود علامتنا ومنتجاتنا.
-      </p>
-
-    </div>
-
-
-    <div class="values">
-
-      <article class="value">
-        <h3 data-i18n="quality">الجودة</h3>
-        <p data-i18n="qualityText">
-          اهتمام بالتفاصيل والمعايير التي تصنع منتجًا موثوقًا.
-        </p>
-      </article>
-
-      <article class="value">
-        <h3 data-i18n="performance">الأداء</h3>
-        <p data-i18n="performanceText">
-          منتجات مصممة لتمنح المحرك أداءً موثوقًا.
-        </p>
-      </article>
-
-      <article class="value">
-        <h3 data-i18n="ambition">الطموح</h3>
-        <p data-i18n="ambitionText">
-          علامة قابلة للنمو والتوسع مستقبلًا.
-        </p>
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= PRODUCTS ================= -->
-
+<article class="value">
+<div class="number">03</div>
+            <h3>الطموح</h3>
+            <p>نتطلع إلى بناء علامة قوية بحضور واضح في سوق الطاقة.</p>
+            <h3 data-i18n="value3Title">الطموح</h3>
+            <p data-i18n="value3Text">نتطلع إلى بناء علامة قوية بحضور واضح في سوق الطاقة.</p>
+</article>
+</div>
+</div>
+@@ -375,35 +390,118 @@ <h3>الطموح</h3>
 <section class="products" id="products">
+<div class="container">
+<div class="section-heading">
+          <h2>منتجاتنا</h2>
+          <p>ستُضاف صور العبوات ومواصفات كل منتج هنا في المرحلة القادمة.</p>
+          <h2 data-i18n="productsTitle">منتجاتنا</h2>
+          <p data-i18n="productsIntro">ستُضاف صور العبوات ومواصفات كل منتج هنا في المرحلة القادمة.</p>
+</div>
 
-  <div class="container">
+<div class="product-grid">
+<article class="product-card">
+<div class="product-icon">01</div>
+            <h3>مجموعة PetroYAM</h3>
+            <p>صفحة مخصصة لعرض المنتج الأول وصورته ومواصفاته عند تجهيزها.</p>
+            <h3 data-i18n="product1Title">مجموعة PetroYAM</h3>
+            <p data-i18n="product1Text">مساحة مخصصة لعرض المنتج الأول وصورته ومواصفاته.</p>
+</article>
 
-    <div class="section-heading">
+<article class="product-card">
+<div class="product-icon">02</div>
+            <h3>مجموعة PetroYAM</h3>
+            <p>صفحة مخصصة لعرض المنتج الثاني وصورته ومواصفاته عند تجهيزها.</p>
+            <h3 data-i18n="product2Title">مجموعة PetroYAM</h3>
+            <p data-i18n="product2Text">مساحة مخصصة لعرض المنتج الثاني وصورته ومواصفاته.</p>
+</article>
 
-      <div class="eyebrow">ENGINE LUBRICANTS</div>
-
-      <h2 data-i18n="productsTitle">
-        منتجات PetroYAM
-      </h2>
-
-      <p data-i18n="productsIntro">
-        تعرف على مواصفات كل منتج.
-      </p>
-
-    </div>
-
-
-    <div class="product-grid">
-
-      <!-- PRIME -->
-
-      <article class="product-card product-1">
-
-        <div class="product-image-box">
-          <img
-            src="petroyam-products.jpg"
-            class="product-image"
-            alt="PetroYAM Prime">
-        </div>
-
-        <div class="product-name">
-          PETROYAM PRIME
-        </div>
-
-        <h3>
-          API SP · 5W-30
-        </h3>
-
-        <p data-i18n="primeText">
-          زيت محركات متعدد الدرجات.
-        </p>
-
-        <div
-          class="spec-button"
-          onclick="showSpecs('prime')"
-          data-i18n="viewSpecs">
-          عرض المواصفات
-        </div>
-
-      </article>
-
-
-      <!-- ELITE -->
-
-      <article class="product-card product-2">
-
-        <div class="product-image-box">
-          <img
-            src="petroyam-products.jpg"
-            class="product-image"
-            alt="PetroYAM Elite">
-        </div>
-
-        <div class="product-name">
-          PETROYAM ELITE
-        </div>
-
-        <h3>
-          API SP · 5W-20
-        </h3>
-
-        <p data-i18n="eliteText">
-          زيت محركات منخفض اللزوجة.
-        </p>
-
-        <div
-          class="spec-button"
-          onclick="showSpecs('elite')"
-          data-i18n="viewSpecs">
-          عرض المواصفات
-        </div>
-
-      </article>
-
-
-      <!-- LEGEND -->
-
-      <article class="product-card product-3">
-
-        <div class="product-image-box">
-          <img
-            src="petroyam-products.jpg"
-            class="product-image"
-            alt="PetroYAM Legend">
-        </div>
-
-        <div class="product-name">
-          PETROYAM LEGEND
-        </div>
-
-        <h3>
-          API SL · 20W-50
-        </h3>
-
-        <p data-i18n="legendText">
-          زيت محركات 20W-50.
-        </p>
-
-        <div
-          class="spec-button"
-          onclick="showSpecs('legend')"
-          data-i18n="viewSpecs">
-          عرض المواصفات
-        </div>
-
-      </article>
-
-
-      <!-- POWER -->
-
-      <article class="product-card product-4">
-
-        <div class="product-image-box">
-          <img
-            src="petroyam-products.jpg"
-            class="product-image"
-            alt="PetroYAM Power">
-        </div>
-
-        <div class="product-name">
-          PETROYAM POWER
-        </div>
-
-        <h3>
-          API SN · 10W-30
-        </h3>
-
-        <p data-i18n="powerText">
-          زيت محركات 10W-30.
-        </p>
-
-        <div
-          class="spec-button"
-          onclick="showSpecs('power')"
-          data-i18n="viewSpecs">
-          عرض المواصفات
-        </div>
-
-      </article>
-
-    </div>
-
-
-    <!-- SPECIFICATIONS -->
-
-    <div
-      class="product-details"
-      id="productDetails">
-
-      <div class="details-header">
-
-        <h3 id="detailsTitle"></h3>
-
-        <button
-          class="close-button"
-          onclick="closeSpecs()"
-          data-i18n="close">
-          إغلاق
-        </button>
-
-      </div>
-
-
-      <table class="spec-table">
-
-        <thead>
-          <tr>
-            <th>PARAMETER</th>
-            <th>ASTM</th>
-            <th>UNIT</th>
-            <th>VALUE</th>
-          </tr>
-        </thead>
-
-        <tbody id="specBody"></tbody>
-
-      </table>
-
-    </div>
-
-  </div>
-
+<article class="product-card">
+<div class="product-icon">03</div>
+            <h3>مجموعة PetroYAM</h3>
+            <p>صفحة مخصصة لعرض المنتج الثالث وصورته ومواصفاته عند تجهيزها.</p>
+            <h3 data-i18n="product3Title">مجموعة PetroYAM</h3>
+            <p data-i18n="product3Text">مساحة مخصصة لعرض المنتج الثالث وصورته ومواصفاته.</p>
+</article>
+</div>
+</div>
 </section>
-
-
-<!-- ================= CONTACT ================= -->
-
-<section class="contact" id="contact">
-
-  <div class="container">
-
-    <div class="contact-box">
-
-      <div class="eyebrow">PETROYAM</div>
-
-      <h2 data-i18n="contactTitle">
-        تواصل معنا
-      </h2>
-
-      <p data-i18n="contactText">
-        هذه الصفحة جاهزة لإضافة قنوات التواصل الرسمية لـ PetroYAM مستقبلًا.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
 </main>
 
-
-<footer data-i18n="footer">
-  © 2026 PETROYAM — جميع الحقوق محفوظة.
-</footer>
-
-
-<script>
-
-/* ================= PRODUCT DATA ================= */
-
-const products={
-
-  prime:{
-    title:"PetroYAM Prime API SP — 5W-30",
-    rows:[
-      ["Viscosity Grade","—","—","5W-30 SP"],
-      ["Density @ 15°C","D-1298","kg/L","0.870"],
-      ["Kinematic Viscosity @ 100°C","D-445","cSt","12.09"],
-      ["Kinematic Viscosity @ 40°C","D-445","cSt","75.09"],
-      ["Viscosity Index (min)","D-2270","—","158"],
-      ["Pour Point","D-97","°C","-39"],
-      ["Flash Point","D-92","°C","220"],
-      ["Total Base Number (TBN)","D-2896","mg KOH/g","7.1"]
-    ]
-  },
-
-  elite:{
-    title:"PetroYAM Elite API SP — 5W-20",
-    rows:[
-      ["Viscosity Grade","—","—","5W-20 SP"],
-      ["Density @ 15°C","D-1298","kg/L","0.852"],
-      ["Kinematic Viscosity @ 100°C","D-445","cSt","8.1"],
-      ["Kinematic Viscosity @ 40°C","D-445","cSt","41.0"],
-      ["Viscosity Index (min)","D-2270","—","≥140"],
-      ["Pour Point","D-97","°C","-36"],
-      ["Flash Point","D-92","°C","≥220"],
-      ["Total Base Number (TBN)","D-2896","mg KOH/g","7.5"]
-    ]
-  },
-
-  legend:{
-    title:"PetroYAM Legend API SL — 20W-50",
-    rows:[
-      ["Viscosity Grade","—","—","20W-50 SL"],
-      ["Density @ 15°C","D-1298","kg/L","0.901"],
-      ["Kinematic Viscosity @ 100°C","D-445","cSt","19.31"],
-      ["Kinematic Viscosity @ 40°C","D-445","cSt","172.17"],
-      ["Viscosity Index (min)","D-2270","—","128"],
-      ["Pour Point","D-97","°C","-27"],
-      ["Flash Point","D-92","°C","230"],
-      ["Total Base Number (TBN)","D-2896","mg KOH/g","6.5"]
-    ]
-  },
-
-  power:{
-    title:"PetroYAM Power API SN — 10W-30",
-    rows:[
-      ["Viscosity Grade","—","—","10W-30 SN"],
-      ["Density @ 29.5°C","D-1298","kg/L","0.858"],
-      ["Kinematic Viscosity @ 100°C","D-445","cSt","11"],
-      ["Kinematic Viscosity @ 40°C","D-445","cSt","72.5"],
-      ["Viscosity Index (min)","D-2270","—","141"],
-      ["CCS @ -25°C","D-5293","mPa·s","<7000"],
-      ["Pour Point","D-97","°C","-33"],
-      ["Flash Point","D-92","°C","220"],
-      ["Total Base Number (TBN)","D-2896","mg KOH/g","7.0"]
-    ]
-  }
-
-};
-
-
-/* ================= SPECIFICATIONS ================= */
-
-function showSpecs(productName){
-
-  const product=products[productName];
-
-  document.getElementById("detailsTitle")
-    .textContent=product.title;
-
-  document.getElementById("specBody")
-    .innerHTML=product.rows.map(row=>`
-      <tr>
-        <td>${row[0]}</td>
-        <td>${row[1]}</td>
-        <td>${row[2]}</td>
-        <td>${row[3]}</td>
-      </tr>
-    `).join("");
-
-  const details=document.getElementById("productDetails");
-
-  details.classList.add("active");
-
-  details.scrollIntoView({
-    behavior:"smooth",
-    block:"start"
-  });
-}
-
-
-function closeSpecs(){
-
-  document.getElementById("productDetails")
-    .classList.remove("active");
-
-}
-
-
-/* ================= LANGUAGE ================= */
-
-const translations={
-
-  ar:{
-    home:"الرئيسية",
-    about:"من نحن",
-    values:"قيمنا",
-    products:"منتجاتنا",
-    contact:"تواصل معنا",
-
-    origin:"صنع بفخر في الإمارات العربية المتحدة",
-
-    heroTitle:"أداء صُمم ليُعتمد عليه",
-    heroText:"زيوت محركات تجمع بين الجودة والأداء والموثوقية.",
-    explore:"استكشف منتجاتنا",
-
-    aboutTitle:"جودة تبني الثقة",
-
-    aboutText1:
-      "PetroYAM هي علامة متخصصة في زيوت المحركات، تجمع بين الهوية الاحترافية والطموح الواضح لتقديم منتجات موثوقة تلبي احتياجات السوق.",
-
-    aboutText2:
-      "نركز على جودة المنتج والأداء والاهتمام بالتفاصيل، مع تطوير مجموعة منتجات قابلة للتوسع مستقبلًا.",
-
-    valuesTitle:"ما الذي يمثل PetroYAM؟",
-
-    valuesIntro:
-      "مبادئ واضحة تقود علامتنا ومنتجاتنا.",
-
-    quality:"الجودة",
-
-    qualityText:
-      "اهتمام بالتفاصيل والمعايير التي تصنع منتجًا موثوقًا.",
-
-    performance:"الأداء",
-
-    performanceText:
-      "منتجات مصممة لتمنح المحرك أداءً موثوقًا.",
-
-    ambition:"الطموح",
-
-    ambitionText:
-      "علامة قابلة للنمو والتوسع مستقبلًا.",
-
-    productsTitle:"منتجات PetroYAM",
-
-    productsIntro:
-      "تعرف على المواصفات الفنية لكل منتج.",
-
-    primeText:"زيت محركات متعدد الدرجات.",
-    eliteText:"زيت محركات منخفض اللزوجة.",
-    legendText:"زيت محركات 20W-50.",
-    powerText:"زيت محركات 10W-30.",
-
-    viewSpecs:"عرض المواصفات",
-
-    close:"إغلاق",
-
-    contactTitle:"تواصل معنا",
-
-    contactText:
-      "هذه الصفحة جاهزة لإضافة قنوات التواصل الرسمية لـ PetroYAM مستقبلًا.",
-
-    footer:"© 2026 PETROYAM — جميع الحقوق محفوظة."
-  },
-
-
-  en:{
-    home:"Home",
-    about:"About Us",
-    values:"Our Values",
-    products:"Products",
-    contact:"Contact Us",
-
-    origin:"Proudly Made in the United Arab Emirates",
-
-    heroTitle:"Performance You Can Trust",
-    heroText:"Engine lubricants built around quality, performance and reliability.",
-    explore:"Explore Products",
-
-    aboutTitle:"Quality Builds Trust",
-
-    aboutText1:
-      "PetroYAM is an engine lubricant brand with a professional identity and a clear ambition to deliver reliable products that meet market needs.",
-
-    aboutText2:
-      "We focus on product quality, performance and attention to detail, with a product range designed to grow in the future.",
-
-    valuesTitle:"What PetroYAM Stands For",
-
-    valuesIntro:
-      "Clear principles that guide our brand and products.",
-
-    quality:"Quality",
-
-    qualityText:
-      "Attention to details and standards that create a trusted product.",
-
-    performance:"Performance",
-
-    performanceText:
-      "Products designed to deliver dependable engine performance.",
-
-    ambition:"Ambition",
-
-    ambitionText:
-      "A brand designed for future growth and expansion.",
-
-    productsTitle:"PetroYAM Products",
-
-    productsIntro:
-      "Explore the technical specifications of each product.",
-
-    primeText:"Multi-grade engine oil.",
-    eliteText:"Low-viscosity engine oil.",
-    legendText:"20W-50 engine oil.",
-    powerText:"10W-30 engine oil.",
-
-    viewSpecs:"View Specifications",
-
-    close:"Close",
-
-    contactTitle:"Contact Us",
-
-    contactText:
-      "This page is ready for PetroYAM's official communication channels to be added in the future.",
-
-    footer:"© 2026 PETROYAM — All rights reserved."
-  }
-
-};
-
-
-let currentLanguage=
-  localStorage.getItem("petroyamLanguage")||"ar";
-
-
-function setLanguage(language){
-
-  currentLanguage=language;
-
-  document.documentElement.lang=language;
-
-  document.documentElement.dir=
-    language==="ar" ? "rtl" : "ltr";
-
-  document.querySelectorAll("[data-i18n]")
-    .forEach(element=>{
-
-      const key=element.dataset.i18n;
-
-      if(translations[language][key]){
-        element.textContent=
-          translations[language][key];
+  <footer>
+    © 2026 PETROYAM — جميع الحقوق محفوظة.
+  </footer>
+  <footer data-i18n="footer">© 2026 PETROYAM — جميع الحقوق محفوظة.</footer>
+
+  <script>
+    const translations = {
+      ar: {
+        navAbout: "من نحن",
+        navValues: "قيمنا",
+        navProducts: "منتجاتنا",
+        heroText: "هوية طاقة حديثة مبنية على الثقة، الجودة، والأداء الذي يمكن الاعتماد عليه.",
+        heroButton: "اكتشف PetroYAM",
+        aboutTitle: "طاقة بثقة",
+        aboutText1: "PetroYAM هي علامة تجمع بين الهوية الاحترافية والطموح الواضح: تقديم حلول ومنتجات تواكب احتياجات السوق بمعايير عالية من الجودة والموثوقية.",
+        aboutText2: "نؤمن بأن كل تفصيل يصنع فرقًا، من جودة المنتج إلى التجربة التي نقدمها لعملائنا.",
+        valuesTitle: "ما الذي يمثل PetroYAM؟",
+        valuesIntro: "أسس واضحة نبني عليها حضورنا ومنتجاتنا.",
+        value1Title: "الجودة",
+        value1Text: "اهتمام متواصل بالتفاصيل والمعايير التي تصنع منتجًا موثوقًا.",
+        value2Title: "الأداء",
+        value2Text: "حلول وهوية مصممة لتمنح العميل ثقة أكبر في كل استخدام.",
+        value3Title: "الطموح",
+        value3Text: "نتطلع إلى بناء علامة قوية بحضور واضح في سوق الطاقة.",
+        productsTitle: "منتجاتنا",
+        productsIntro: "ستُضاف صور العبوات ومواصفات كل منتج هنا في المرحلة القادمة.",
+        product1Title: "مجموعة PetroYAM",
+        product1Text: "مساحة مخصصة لعرض المنتج الأول وصورته ومواصفاته.",
+        product2Title: "مجموعة PetroYAM",
+        product2Text: "مساحة مخصصة لعرض المنتج الثاني وصورته ومواصفاته.",
+        product3Title: "مجموعة PetroYAM",
+        product3Text: "مساحة مخصصة لعرض المنتج الثالث وصورته ومواصفاته.",
+        footer: "© 2026 PETROYAM — جميع الحقوق محفوظة."
+      },
+      en: {
+        navAbout: "About Us",
+        navValues: "Our Values",
+        navProducts: "Products",
+        heroText: "A modern energy identity built on trust, quality, and dependable performance.",
+        heroButton: "Discover PetroYAM",
+        aboutTitle: "Energy with Confidence",
+        aboutText1: "PetroYAM combines a professional identity with a clear ambition: delivering solutions and products that meet market needs through quality and reliability.",
+        aboutText2: "We believe every detail matters, from product quality to the experience we provide for our customers.",
+        valuesTitle: "What PetroYAM Stands For",
+        valuesIntro: "Clear principles that guide our brand and our products.",
+        value1Title: "Quality",
+        value1Text: "Continual attention to details and standards that create a trusted product.",
+        value2Title: "Performance",
+        value2Text: "Solutions and an identity designed to inspire confidence in every use.",
+        value3Title: "Ambition",
+        value3Text: "We aim to build a strong brand with a clear presence in the energy market.",
+        productsTitle: "Our Products",
+        productsIntro: "Product images and specifications will be added here in the next stage.",
+        product1Title: "PetroYAM Range",
+        product1Text: "A dedicated space for the first product, its image, and specifications.",
+        product2Title: "PetroYAM Range",
+        product2Text: "A dedicated space for the second product, its image, and specifications.",
+        product3Title: "PetroYAM Range",
+        product3Text: "A dedicated space for the third product, its image, and specifications.",
+        footer: "© 2026 PETROYAM — All rights reserved."
       }
+    };
 
-    });
+    let currentLanguage = localStorage.getItem("petroyamLanguage") || "ar";
 
-  document.getElementById("languageButton")
-    .textContent=
-      language==="ar" ? "EN" : "AR";
+    function setLanguage(language) {
+      currentLanguage = language;
+      document.documentElement.lang = language;
+      document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+      document.title = language === "ar"
+        ? "PetroYAM | قوة تعتمد عليها"
+        : "PetroYAM | Power You Can Trust";
 
-  document.title=
-    language==="ar"
-      ? "PetroYAM | قوة تعتمد عليها"
-      : "PetroYAM | Power You Can Trust";
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        element.textContent = translations[language][element.dataset.i18n];
+      });
 
-  localStorage.setItem(
-    "petroyamLanguage",
-    language
-  );
-}
+      document.getElementById("languageButton").textContent =
+        language === "ar" ? "EN" : "AR";
 
+      localStorage.setItem("petroyamLanguage", language);
+    }
 
-function toggleLanguage(){
+    function toggleLanguage() {
+      setLanguage(currentLanguage === "ar" ? "en" : "ar");
+    }
 
-  setLanguage(
-    currentLanguage==="ar"
-      ? "en"
-      : "ar"
-  );
-
-}
-
-
-setLanguage(currentLanguage);
-
-</script>
-
+    setLanguage(currentLanguage);
+  </script>
 </body>
 </html>
