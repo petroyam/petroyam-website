@@ -107,10 +107,6 @@ header{
   letter-spacing:2px;
 }
 
-.brand-text span{
-  display:none;
-}
-
 .nav-right{
   display:flex;
   align-items:center;
@@ -154,21 +150,25 @@ header{
 /* ================= HERO ================= */
 
 .hero{
-  min-height:760px;
+  min-height:780px;
   position:relative;
   overflow:hidden;
   display:flex;
   align-items:center;
 
+  /*
+    petroyam-products.jpg هي صورة الـ Hero الرئيسية
+    وتُستخدم كما هي بدون تعديل على الملف نفسه.
+  */
   background:
     linear-gradient(
       90deg,
       rgba(5,13,23,.96) 0%,
-      rgba(5,13,23,.88) 32%,
-      rgba(5,13,23,.58) 62%,
-      rgba(5,13,23,.42) 100%
+      rgba(5,13,23,.84) 28%,
+      rgba(5,13,23,.50) 60%,
+      rgba(5,13,23,.18) 100%
     ),
-    url("petroyam-background.png");
+    url("petroyam-products.jpg");
 
   background-size:cover;
   background-position:center;
@@ -179,12 +179,15 @@ header{
   content:"";
   position:absolute;
   inset:0;
+
   background:
-    radial-gradient(
-      circle at 78% 35%,
-      rgba(217,169,40,.20),
-      transparent 28%
+    linear-gradient(
+      135deg,
+      rgba(7,19,33,.72),
+      rgba(7,19,33,.12) 55%,
+      rgba(217,169,40,.08)
     );
+
   pointer-events:none;
 }
 
@@ -207,7 +210,7 @@ header{
 
 .hero-content{
   position:relative;
-  z-index:2;
+  z-index:3;
   max-width:800px;
   padding-top:80px;
 }
@@ -224,8 +227,8 @@ header{
   margin-bottom:30px;
 
   filter:
-    drop-shadow(0 18px 35px rgba(0,0,0,.35))
-    drop-shadow(0 0 25px rgba(217,169,40,.10));
+    drop-shadow(0 18px 35px rgba(0,0,0,.45))
+    drop-shadow(0 0 25px rgba(217,169,40,.12));
 }
 
 .hero-kicker{
@@ -234,21 +237,24 @@ header{
   font-weight:bold;
   letter-spacing:3px;
   margin-bottom:18px;
+  text-shadow:0 2px 10px rgba(0,0,0,.65);
 }
 
 .hero-subtitle{
-  color:#e8eef3;
+  color:#ffffff;
   font-size:clamp(21px,3vw,32px);
-  font-weight:600;
+  font-weight:700;
   max-width:700px;
   margin-bottom:16px;
+  text-shadow:0 3px 15px rgba(0,0,0,.75);
 }
 
 .hero-text{
-  color:var(--muted);
+  color:#edf3f7;
   max-width:640px;
   font-size:16px;
   margin-bottom:32px;
+  text-shadow:0 2px 12px rgba(0,0,0,.75);
 }
 
 .hero-actions{
@@ -279,8 +285,10 @@ header{
 }
 
 .btn-outline{
-  border:1px solid rgba(255,255,255,.35);
+  border:1px solid rgba(255,255,255,.55);
   color:white;
+  background:rgba(5,13,23,.20);
+  backdrop-filter:blur(5px);
 }
 
 .btn-outline:hover{
@@ -383,19 +391,36 @@ section{
   position:relative;
   overflow:hidden;
 
+  /*
+    petroyam-background.png مدمجة بشكل خفيف
+    خلف محتوى About لإعطاء عمق بدون التأثير على القراءة.
+  */
   background:
     linear-gradient(
       90deg,
-      rgba(255,255,255,.95) 0%,
-      rgba(255,255,255,.88) 42%,
-      rgba(255,255,255,.48) 72%,
-      rgba(255,255,255,.18) 100%
+      rgba(255,255,255,.97) 0%,
+      rgba(255,255,255,.91) 38%,
+      rgba(255,255,255,.70) 67%,
+      rgba(255,255,255,.48) 100%
     ),
-    url("petroyam-bottles.png");
+    url("petroyam-background.png");
 
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
+}
+
+.about:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(
+      circle at 80% 35%,
+      rgba(217,169,40,.12),
+      transparent 30%
+    );
+  pointer-events:none;
 }
 
 .about-grid{
@@ -418,8 +443,9 @@ section{
 }
 
 .about-copy p{
-  color:#63717d;
+  color:#52616d;
   margin-bottom:18px;
+  font-size:16px;
 }
 
 .about-panel{
@@ -431,8 +457,8 @@ section{
   background:
     linear-gradient(
       135deg,
-      rgba(8,21,34,.92),
-      rgba(16,46,71,.82)
+      rgba(8,21,34,.94),
+      rgba(16,46,71,.86)
     );
 
   box-shadow:var(--shadow);
@@ -449,6 +475,20 @@ section{
   bottom:-70px;
 }
 
+.about-panel:after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    url("petroyam-background.png");
+
+  background-size:cover;
+  background-position:center;
+  opacity:.10;
+  mix-blend-mode:screen;
+}
+
 .about-panel-content{
   position:absolute;
   inset:0;
@@ -456,12 +496,14 @@ section{
   flex-direction:column;
   justify-content:center;
   padding:45px;
+  z-index:2;
 }
 
 .about-panel strong{
   color:white;
   font-size:34px;
   line-height:1.15;
+  text-shadow:0 3px 15px rgba(0,0,0,.4);
 }
 
 .about-panel span{
@@ -478,19 +520,38 @@ section{
   position:relative;
   overflow:hidden;
 
+  /*
+    حسب المطلوب:
+    petroyam-bottles.png هي خلفية قسم Products.
+  */
   background:
     linear-gradient(
       90deg,
-      rgba(244,246,248,.94) 0%,
-      rgba(244,246,248,.80) 38%,
-      rgba(244,246,248,.55) 68%,
-      rgba(244,246,248,.30) 100%
+      rgba(244,246,248,.96) 0%,
+      rgba(244,246,248,.88) 35%,
+      rgba(244,246,248,.66) 65%,
+      rgba(244,246,248,.42) 100%
     ),
-    url("petroyam-products.png");
+    url("petroyam-bottles.png");
 
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
+}
+
+.products:before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.16),
+      rgba(255,255,255,.04)
+    );
+
+  pointer-events:none;
 }
 
 .products:after{
@@ -501,7 +562,7 @@ section{
   background:
     radial-gradient(
       circle at 80% 25%,
-      rgba(217,169,40,.16),
+      rgba(217,169,40,.14),
       transparent 28%
     );
 
@@ -519,12 +580,13 @@ section{
 }
 
 .products .section-heading h2{
-  text-shadow:0 2px 12px rgba(255,255,255,.65);
+  text-shadow:0 2px 12px rgba(255,255,255,.90);
 }
 
 .products .section-heading p{
-  color:#394b59;
-  font-weight:500;
+  color:#273945;
+  font-weight:600;
+  text-shadow:0 1px 5px rgba(255,255,255,.8);
 }
 
 
@@ -545,14 +607,15 @@ section{
   overflow:hidden;
   transition:.3s;
   cursor:pointer;
+
   box-shadow:
-    0 10px 30px rgba(7,19,33,.12);
+    0 10px 30px rgba(7,19,33,.15);
 }
 
 .product-card:hover{
   transform:translateY(-8px);
   box-shadow:
-    0 25px 55px rgba(7,19,33,.22);
+    0 25px 55px rgba(7,19,33,.25);
 }
 
 .product-image{
@@ -562,6 +625,10 @@ section{
   background:#f5f5f5;
 }
 
+/*
+  petroyam-products.jpg تبقى كما هي.
+  نستخدمها فقط كـ sprite لعرض المنتجات.
+*/
 .product-image:before{
   content:"";
   position:absolute;
@@ -570,6 +637,12 @@ section{
   background-image:url("petroyam-products.jpg");
   background-repeat:no-repeat;
   background-size:400% 100%;
+
+  transition:transform .4s ease;
+}
+
+.product-card:hover .product-image:before{
+  transform:scale(1.025);
 }
 
 .product-card:nth-child(1) .product-image:before{
@@ -590,6 +663,7 @@ section{
 
 .product-info{
   padding:24px 22px 25px;
+  background:rgba(255,255,255,.98);
 }
 
 .product-name{
@@ -862,8 +936,8 @@ footer{
 
 
 /* =========================================================
-   MOBILE
-   ========================================================= */
+   TABLET / MOBILE
+========================================================= */
 
 @media(max-width:950px){
 
@@ -897,11 +971,11 @@ footer{
     background:
       linear-gradient(
         180deg,
-        rgba(255,255,255,.93) 0%,
-        rgba(255,255,255,.80) 48%,
-        rgba(255,255,255,.42) 100%
+        rgba(255,255,255,.95) 0%,
+        rgba(255,255,255,.82) 48%,
+        rgba(255,255,255,.58) 100%
       ),
-      url("petroyam-bottles.png");
+      url("petroyam-background.png");
 
     background-size:cover;
     background-position:center;
@@ -911,16 +985,15 @@ footer{
     background:
       linear-gradient(
         180deg,
-        rgba(244,246,248,.94) 0%,
+        rgba(244,246,248,.95) 0%,
         rgba(244,246,248,.78) 42%,
-        rgba(244,246,248,.46) 100%
+        rgba(244,246,248,.48) 100%
       ),
-      url("petroyam-products.png");
+      url("petroyam-bottles.png");
 
     background-size:cover;
     background-position:center;
   }
-
 }
 
 
@@ -955,19 +1028,19 @@ footer{
   }
 
 
-  /* HERO */
+  /* ================= HERO ================= */
 
   .hero{
-    min-height:720px;
+    min-height:730px;
 
     background:
       linear-gradient(
         180deg,
-        rgba(5,13,23,.90) 0%,
-        rgba(5,13,23,.70) 45%,
-        rgba(5,13,23,.90) 100%
+        rgba(5,13,23,.94) 0%,
+        rgba(5,13,23,.66) 42%,
+        rgba(5,13,23,.88) 100%
       ),
-      url("petroyam-background.png");
+      url("petroyam-products.jpg");
 
     background-size:cover;
     background-position:center;
@@ -988,17 +1061,20 @@ footer{
     font-size:10px;
     letter-spacing:2px;
     margin-bottom:14px;
+    text-align:center;
   }
 
   .hero-subtitle{
     font-size:22px;
     line-height:1.45;
+    text-align:center;
   }
 
   .hero-text{
     font-size:14px;
     line-height:1.8;
     margin-bottom:25px;
+    text-align:center;
   }
 
   .hero-actions{
@@ -1012,7 +1088,7 @@ footer{
   }
 
 
-  /* UAE */
+  /* ================= UAE ================= */
 
   .origin{
     padding:18px 0;
@@ -1032,7 +1108,7 @@ footer{
   }
 
 
-  /* SECTIONS */
+  /* ================= SECTIONS ================= */
 
   section{
     padding:70px 0;
@@ -1048,20 +1124,21 @@ footer{
 
   .section-heading p{
     font-size:14px;
+    line-height:1.8;
   }
 
 
-  /* ABOUT */
+  /* ================= ABOUT ================= */
 
   .about{
     background:
       linear-gradient(
         180deg,
-        rgba(255,255,255,.96) 0%,
-        rgba(255,255,255,.87) 42%,
-        rgba(255,255,255,.58) 100%
+        rgba(255,255,255,.97) 0%,
+        rgba(255,255,255,.89) 42%,
+        rgba(255,255,255,.64) 100%
       ),
-      url("petroyam-bottles.png");
+      url("petroyam-background.png");
 
     background-size:cover;
     background-position:center;
@@ -1071,6 +1148,11 @@ footer{
     gap:30px;
   }
 
+  .about-copy{
+    position:relative;
+    z-index:3;
+  }
+
   .about-copy h2{
     font-size:32px;
     line-height:1.25;
@@ -1078,6 +1160,7 @@ footer{
 
   .about-copy p{
     font-size:14px;
+    line-height:1.9;
   }
 
   .about-panel{
@@ -1093,17 +1176,17 @@ footer{
   }
 
 
-  /* PRODUCTS */
+  /* ================= PRODUCTS ================= */
 
   .products{
     background:
       linear-gradient(
         180deg,
-        rgba(244,246,248,.96) 0%,
-        rgba(244,246,248,.83) 38%,
-        rgba(244,246,248,.55) 100%
+        rgba(244,246,248,.97) 0%,
+        rgba(244,246,248,.86) 38%,
+        rgba(244,246,248,.62) 100%
       ),
-      url("petroyam-products.png");
+      url("petroyam-bottles.png");
 
     background-size:auto 100%;
     background-position:center;
@@ -1131,7 +1214,7 @@ footer{
   }
 
 
-  /* QUALITY */
+  /* ================= QUALITY ================= */
 
   .quality-grid{
     grid-template-columns:1fr;
@@ -1143,7 +1226,7 @@ footer{
   }
 
 
-  /* MODAL */
+  /* ================= MODAL ================= */
 
   .modal{
     padding:12px;
@@ -1185,7 +1268,7 @@ footer{
   }
 
 
-  /* CONTACT */
+  /* ================= CONTACT ================= */
 
   .contact-box{
     padding:32px 22px;
@@ -1205,7 +1288,6 @@ footer{
   .contact-box .btn{
     width:100%;
   }
-
 }
 
 
@@ -1233,7 +1315,6 @@ footer{
     height:260px;
     min-height:260px;
   }
-
 }
 
 
@@ -1270,9 +1351,7 @@ html[dir="ltr"] .modal-close{
       >
 
       <div class="brand-text">
-
         <strong>PETROYAM</strong>
-
       </div>
 
     </a>
@@ -1316,7 +1395,6 @@ html[dir="ltr"] .modal-close{
 </header>
 
 
-
 <!-- ================= HERO ================= -->
 
 <main>
@@ -1325,18 +1403,15 @@ html[dir="ltr"] .modal-close{
 
   <div class="container hero-content">
 
-
     <img
       src="petroyam-logo.jpg"
       alt="PetroYAM"
       class="hero-logo"
     >
 
-
     <div class="hero-kicker">
       PERFORMANCE · PROTECTION · CONFIDENCE
     </div>
-
 
     <div
       class="hero-subtitle"
@@ -1345,7 +1420,6 @@ html[dir="ltr"] .modal-close{
       زيوت مصممة للأداء. ثقة تدوم.
     </div>
 
-
     <p
       class="hero-text"
       data-i18n="heroText"
@@ -1353,7 +1427,6 @@ html[dir="ltr"] .modal-close{
       حلول متطورة لزيوت محركات السيارات، تجمع بين الأداء الموثوق
       والهوية الحديثة والتقنية الألمانية.
     </p>
-
 
     <div class="hero-actions">
 
@@ -1365,7 +1438,6 @@ html[dir="ltr"] .modal-close{
         استكشف منتجاتنا
       </a>
 
-
       <a
         href="#about"
         class="btn btn-outline"
@@ -1376,11 +1448,9 @@ html[dir="ltr"] .modal-close{
 
     </div>
 
-
   </div>
 
 </section>
-
 
 
 <!-- ================= ORIGIN ================= -->
@@ -1410,13 +1480,11 @@ html[dir="ltr"] .modal-close{
 </div>
 
 
-
 <!-- ================= ABOUT ================= -->
 
 <section class="about" id="about">
 
   <div class="container about-grid">
-
 
     <div class="about-copy">
 
@@ -1427,18 +1495,15 @@ html[dir="ltr"] .modal-close{
         ABOUT PETROYAM
       </div>
 
-
       <h2 data-i18n="aboutTitle">
         تقنية ألمانية. هوية إماراتية.
       </h2>
-
 
       <p data-i18n="aboutText1">
         PetroYAM هي علامة متخصصة في زيوت محركات السيارات،
         تأسست برؤية واضحة لتقديم منتجات تجمع بين الجودة والأداء
         والاعتمادية.
       </p>
-
 
       <p data-i18n="aboutText2">
         نركز على تطوير مجموعة من زيوت المحركات بمواصفات واضحة
@@ -1471,13 +1536,11 @@ html[dir="ltr"] .modal-close{
 </section>
 
 
-
 <!-- ================= PRODUCTS ================= -->
 
 <section class="products" id="products">
 
   <div class="container">
-
 
     <div class="section-heading">
 
@@ -1488,11 +1551,9 @@ html[dir="ltr"] .modal-close{
         PETROYAM PRODUCTS
       </div>
 
-
       <h2 data-i18n="productsTitle">
         منتجاتنا
       </h2>
-
 
       <p data-i18n="productsIntro">
         مجموعة من زيوت محركات السيارات بمواصفات فنية واضحة،
@@ -1500,7 +1561,6 @@ html[dir="ltr"] .modal-close{
       </p>
 
     </div>
-
 
 
     <div class="products-grid">
@@ -1541,7 +1601,6 @@ html[dir="ltr"] .modal-close{
       </article>
 
 
-
       <!-- ELITE -->
 
       <article
@@ -1577,7 +1636,6 @@ html[dir="ltr"] .modal-close{
       </article>
 
 
-
       <!-- LEGEND -->
 
       <article
@@ -1611,7 +1669,6 @@ html[dir="ltr"] .modal-close{
         </div>
 
       </article>
-
 
 
       <!-- POWER -->
@@ -1656,13 +1713,11 @@ html[dir="ltr"] .modal-close{
 </section>
 
 
-
 <!-- ================= QUALITY ================= -->
 
 <section class="quality" id="quality">
 
   <div class="container">
-
 
     <div class="section-heading">
 
@@ -1673,18 +1728,15 @@ html[dir="ltr"] .modal-close{
         OUR APPROACH
       </div>
 
-
       <h2 data-i18n="qualityTitle">
         ما تمثله PetroYAM
       </h2>
-
 
       <p data-i18n="qualityIntro">
         الجودة والأداء والوضوح في كل منتج.
       </p>
 
     </div>
-
 
 
     <div class="quality-grid">
@@ -1704,7 +1756,6 @@ html[dir="ltr"] .modal-close{
       </div>
 
 
-
       <div class="quality-card">
 
         <h3 data-i18n="quality2Title">
@@ -1717,7 +1768,6 @@ html[dir="ltr"] .modal-close{
         </p>
 
       </div>
-
 
 
       <div class="quality-card">
@@ -1741,7 +1791,6 @@ html[dir="ltr"] .modal-close{
 </section>
 
 
-
 <!-- ================= CONTACT ================= -->
 
 <section class="contact" id="contact">
@@ -1749,7 +1798,6 @@ html[dir="ltr"] .modal-close{
   <div class="container">
 
     <div class="contact-box">
-
 
       <div>
 
@@ -1764,7 +1812,6 @@ html[dir="ltr"] .modal-close{
 
       </div>
 
-
       <a
         href="mailto:info@petroyam.com"
         class="btn btn-primary"
@@ -1773,7 +1820,6 @@ html[dir="ltr"] .modal-close{
         تواصل معنا
       </a>
 
-
     </div>
 
   </div>
@@ -1781,7 +1827,6 @@ html[dir="ltr"] .modal-close{
 </section>
 
 </main>
-
 
 
 <!-- ================= FOOTER ================= -->
@@ -1799,7 +1844,6 @@ html[dir="ltr"] .modal-close{
 </footer>
 
 
-
 <!-- ================= PRODUCT MODAL ================= -->
 
 <div
@@ -1808,12 +1852,10 @@ html[dir="ltr"] .modal-close{
   onclick="closeProduct(event)"
 >
 
-
   <div
     class="modal-box"
     onclick="event.stopPropagation()"
   >
-
 
     <button
       class="modal-close"
@@ -1822,28 +1864,22 @@ html[dir="ltr"] .modal-close{
       ×
     </button>
 
-
     <div class="modal-content">
-
 
       <div
         class="modal-product-image"
         id="modalImage"
       ></div>
 
-
       <div class="modal-details">
-
 
         <div class="section-label">
           PETROYAM
         </div>
 
-
         <h2 id="modalName">
           PRIME
         </h2>
-
 
         <div
           class="modal-grade"
@@ -1851,8 +1887,6 @@ html[dir="ltr"] .modal-close{
         >
           5W-30 · API SP
         </div>
-
-
 
         <table class="spec-table">
 
@@ -1880,11 +1914,9 @@ html[dir="ltr"] .modal-close{
 
           </thead>
 
-
           <tbody id="specBody"></tbody>
 
         </table>
-
 
         <div
           class="typical-note"
@@ -1893,7 +1925,6 @@ html[dir="ltr"] .modal-close{
           Typical Properties. Values shown are product technical data
           and may be subject to applicable production specifications.
         </div>
-
 
       </div>
 
@@ -1904,14 +1935,11 @@ html[dir="ltr"] .modal-close{
 </div>
 
 
-
 <script>
-
 
 /* ================= PRODUCT DATA ================= */
 
 const products = {
-
 
   prime:{
     name:"PRIME",
@@ -1931,7 +1959,6 @@ const products = {
     ]
   },
 
-
   elite:{
     name:"ELITE",
     grade:"5W-20",
@@ -1950,7 +1977,6 @@ const products = {
     ]
   },
 
-
   legend:{
     name:"LEGEND",
     grade:"20W-50",
@@ -1968,7 +1994,6 @@ const products = {
       ["Total Base Number (TBN)","ASTM D2896","mg KOH/g","6.5"]
     ]
   },
-
 
   power:{
     name:"POWER",
@@ -1992,7 +2017,6 @@ const products = {
 };
 
 
-
 /* ================= MODAL ================= */
 
 function openProduct(id){
@@ -2003,18 +2027,14 @@ function openProduct(id){
     return;
   }
 
-
   document.getElementById("modalName").textContent =
     product.name;
-
 
   document.getElementById("modalGrade").textContent =
     product.grade + " · " + product.api;
 
-
   const modalImage =
     document.getElementById("modalImage");
-
 
   modalImage.style.backgroundImage =
     'url("petroyam-products.jpg")';
@@ -2028,18 +2048,15 @@ function openProduct(id){
   modalImage.style.backgroundPosition =
     product.position;
 
-
   const body =
     document.getElementById("specBody");
 
   body.innerHTML = "";
 
-
   product.specs.forEach(row => {
 
     const tr =
       document.createElement("tr");
-
 
     tr.innerHTML = `
       <td>${row[0]}</td>
@@ -2048,22 +2065,18 @@ function openProduct(id){
       <td>${row[3]}</td>
     `;
 
-
     body.appendChild(tr);
 
   });
-
 
   document
     .getElementById("productModal")
     .classList.add("active");
 
-
   document.body.style.overflow =
     "hidden";
 
 }
-
 
 
 function closeProduct(){
@@ -2078,11 +2091,9 @@ function closeProduct(){
 }
 
 
-
 /* ================= LANGUAGE ================= */
 
 const translations = {
-
 
   ar:{
 
@@ -2299,10 +2310,8 @@ const translations = {
 };
 
 
-
 let currentLanguage =
   localStorage.getItem("petroyamLanguage") || "ar";
-
 
 
 function setLanguage(language){
@@ -2310,20 +2319,16 @@ function setLanguage(language){
   currentLanguage =
     language;
 
-
   document.documentElement.lang =
     language;
-
 
   document.documentElement.dir =
     language === "ar"
       ? "rtl"
       : "ltr";
 
-
   document.title =
     "PetroYAM | Premium Automotive Lubricants";
-
 
   document
     .querySelectorAll("[data-i18n]")
@@ -2331,7 +2336,6 @@ function setLanguage(language){
 
       const key =
         element.dataset.i18n;
-
 
       if(
         translations[language] &&
@@ -2345,7 +2349,6 @@ function setLanguage(language){
 
     });
 
-
   document.getElementById(
     "languageButton"
   ).textContent =
@@ -2353,14 +2356,12 @@ function setLanguage(language){
       ? "EN"
       : "AR";
 
-
   localStorage.setItem(
     "petroyamLanguage",
     language
   );
 
 }
-
 
 
 function toggleLanguage(){
@@ -2372,7 +2373,6 @@ function toggleLanguage(){
   );
 
 }
-
 
 
 /* ================= ESCAPE KEY ================= */
@@ -2387,7 +2387,6 @@ document.addEventListener(
 
   }
 );
-
 
 
 /* ================= START ================= */
