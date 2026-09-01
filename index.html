@@ -157,12 +157,12 @@ header{
   display:flex;
   align-items:center;
 
-  background:
+  background-image:
     linear-gradient(
       90deg,
       rgba(5,13,23,.96) 0%,
-      rgba(5,13,23,.82) 38%,
-      rgba(5,13,23,.48) 70%,
+      rgba(5,13,23,.84) 35%,
+      rgba(5,13,23,.55) 68%,
       rgba(5,13,23,.72) 100%
     ),
     url("petroyam-background.png");
@@ -176,7 +176,7 @@ header{
   content:"";
   position:absolute;
   inset:0;
-  opacity:.22;
+  opacity:.16;
 
   background-image:
     linear-gradient(
@@ -391,6 +391,8 @@ section{
 
 .about{
   background:white;
+  position:relative;
+  overflow:hidden;
 }
 
 .about-grid{
@@ -398,6 +400,11 @@ section{
   grid-template-columns:1.1fr .9fr;
   gap:70px;
   align-items:center;
+}
+
+.about-copy{
+  position:relative;
+  z-index:2;
 }
 
 .about-copy h2{
@@ -418,8 +425,16 @@ section{
   position:relative;
 
   background:
-    radial-gradient(circle at 70% 30%,rgba(217,169,40,.28),transparent 25%),
-    linear-gradient(145deg,#081522,#102e47);
+    linear-gradient(
+      135deg,
+      rgba(8,21,34,.88),
+      rgba(16,46,71,.70)
+    ),
+    url("petroyam-bottles.png");
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
 
   box-shadow:var(--shadow);
 }
@@ -435,9 +450,24 @@ section{
   bottom:-70px;
 }
 
+.about-panel:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8,21,34,.92) 0%,
+      rgba(8,21,34,.62) 48%,
+      rgba(8,21,34,.22) 100%
+    );
+  pointer-events:none;
+}
+
 .about-panel-content{
   position:absolute;
   inset:0;
+  z-index:2;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -448,6 +478,7 @@ section{
   color:white;
   font-size:34px;
   line-height:1.15;
+  text-shadow:0 4px 20px rgba(0,0,0,.45);
 }
 
 .about-panel span{
@@ -461,26 +492,13 @@ section{
 /* ================= PRODUCTS ================= */
 
 .products{
-  position:relative;
-  overflow:hidden;
-
   background:
-    radial-gradient(circle at 10% 10%,rgba(217,169,40,.08),transparent 25%),
-    linear-gradient(180deg,#f4f6f8,#eef1f4);
-}
-
-/* New image integrated into products section */
-.products:before{
-  content:"";
-  position:absolute;
-  inset:0;
-
-  background-image:
     linear-gradient(
       90deg,
       rgba(244,246,248,.97) 0%,
-      rgba(244,246,248,.82) 45%,
-      rgba(244,246,248,.58) 100%
+      rgba(244,246,248,.88) 38%,
+      rgba(244,246,248,.68) 70%,
+      rgba(244,246,248,.84) 100%
     ),
     url("petroyam-products.png");
 
@@ -488,7 +506,20 @@ section{
   background-position:center;
   background-repeat:no-repeat;
 
-  opacity:.32;
+  position:relative;
+  overflow:hidden;
+}
+
+.products:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(
+      circle at 85% 50%,
+      rgba(217,169,40,.10),
+      transparent 30%
+    );
   pointer-events:none;
 }
 
@@ -504,16 +535,15 @@ section{
 }
 
 .product-card{
-  position:relative;
-  z-index:3;
-
   background:white;
   border:1px solid #e3e7eb;
   border-radius:10px;
   overflow:hidden;
   transition:.3s;
   cursor:pointer;
-  box-shadow:0 10px 30px rgba(7,19,33,.06);
+  box-shadow:0 10px 30px rgba(7,19,33,.10);
+  position:relative;
+  z-index:3;
 }
 
 .product-card:hover{
@@ -533,7 +563,6 @@ section{
   position:absolute;
   inset:0;
 
-  /* ORIGINAL PRODUCT IMAGE - KEEP */
   background-image:url("petroyam-products.jpg");
   background-repeat:no-repeat;
   background-size:400% 100%;
@@ -707,7 +736,6 @@ section{
   position:relative;
   overflow:hidden;
 
-  /* ORIGINAL PRODUCT IMAGE - KEEP */
   background-image:url("petroyam-products.jpg");
   background-repeat:no-repeat;
   background-size:400% 100%;
@@ -871,6 +899,7 @@ footer{
 
   .hero{
     min-height:720px;
+    background-position:center;
   }
 
   .hero-content{
@@ -902,6 +931,10 @@ footer{
 
   .product-image{
     height:420px;
+  }
+
+  .about-panel{
+    min-height:360px;
   }
 
   .contact-box{
