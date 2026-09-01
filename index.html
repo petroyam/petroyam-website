@@ -12,6 +12,8 @@ content="PetroYAM — Premium automotive lubricants, proudly made in the United 
 
 <style>
 
+/* ================= ROOT ================= */
+
 :root{
   --navy:#071321;
   --navy-2:#0b1d31;
@@ -40,6 +42,7 @@ body{
   background:var(--light);
   color:#172330;
   line-height:1.7;
+  overflow-x:hidden;
 }
 
 a{
@@ -161,9 +164,9 @@ header{
     linear-gradient(
       90deg,
       rgba(5,13,23,.96) 0%,
-      rgba(5,13,23,.86) 32%,
-      rgba(5,13,23,.58) 65%,
-      rgba(5,13,23,.72) 100%
+      rgba(5,13,23,.88) 32%,
+      rgba(5,13,23,.58) 62%,
+      rgba(5,13,23,.42) 100%
     ),
     url("petroyam-background.png");
 
@@ -176,28 +179,13 @@ header{
   content:"";
   position:absolute;
   inset:0;
-  opacity:.22;
-
-  background-image:
-    linear-gradient(
-      30deg,
-      rgba(255,255,255,.06) 12%,
-      transparent 12.5%,
-      transparent 87%,
-      rgba(255,255,255,.06) 87.5%,
-      rgba(255,255,255,.06)
-    ),
-    linear-gradient(
-      150deg,
-      rgba(255,255,255,.06) 12%,
-      transparent 12.5%,
-      transparent 87%,
-      rgba(255,255,255,.06) 87.5%,
-      rgba(255,255,255,.06)
+  background:
+    radial-gradient(
+      circle at 78% 35%,
+      rgba(217,169,40,.20),
+      transparent 28%
     );
-
-  background-size:55px 95px;
-  background-position:0 0,27px 48px;
+  pointer-events:none;
 }
 
 .hero:after{
@@ -213,6 +201,8 @@ header{
   box-shadow:
     0 0 0 80px rgba(217,169,40,.025),
     0 0 0 160px rgba(217,169,40,.018);
+
+  pointer-events:none;
 }
 
 .hero-content{
@@ -396,10 +386,10 @@ section{
   background:
     linear-gradient(
       90deg,
-      rgba(255,255,255,.97) 0%,
-      rgba(255,255,255,.90) 38%,
-      rgba(255,255,255,.62) 68%,
-      rgba(255,255,255,.35) 100%
+      rgba(255,255,255,.95) 0%,
+      rgba(255,255,255,.88) 42%,
+      rgba(255,255,255,.48) 72%,
+      rgba(255,255,255,.18) 100%
     ),
     url("petroyam-bottles.png");
 
@@ -415,6 +405,10 @@ section{
   align-items:center;
   position:relative;
   z-index:2;
+}
+
+.about-copy{
+  max-width:650px;
 }
 
 .about-copy h2{
@@ -435,8 +429,11 @@ section{
   position:relative;
 
   background:
-    radial-gradient(circle at 70% 30%,rgba(217,169,40,.28),transparent 25%),
-    linear-gradient(145deg,#081522,#102e47);
+    linear-gradient(
+      135deg,
+      rgba(8,21,34,.92),
+      rgba(16,46,71,.82)
+    );
 
   box-shadow:var(--shadow);
 }
@@ -484,10 +481,10 @@ section{
   background:
     linear-gradient(
       90deg,
-      rgba(244,246,248,.97) 0%,
-      rgba(244,246,248,.90) 38%,
-      rgba(244,246,248,.62) 70%,
-      rgba(244,246,248,.38) 100%
+      rgba(244,246,248,.94) 0%,
+      rgba(244,246,248,.80) 38%,
+      rgba(244,246,248,.55) 68%,
+      rgba(244,246,248,.30) 100%
     ),
     url("petroyam-products.png");
 
@@ -496,10 +493,42 @@ section{
   background-repeat:no-repeat;
 }
 
+.products:after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    radial-gradient(
+      circle at 80% 25%,
+      rgba(217,169,40,.16),
+      transparent 28%
+    );
+
+  pointer-events:none;
+}
+
 .products > .container{
   position:relative;
   z-index:2;
 }
+
+.products .section-heading{
+  position:relative;
+  z-index:3;
+}
+
+.products .section-heading h2{
+  text-shadow:0 2px 12px rgba(255,255,255,.65);
+}
+
+.products .section-heading p{
+  color:#394b59;
+  font-weight:500;
+}
+
+
+/* ================= PRODUCT GRID ================= */
 
 .products-grid{
   display:grid;
@@ -510,20 +539,20 @@ section{
 }
 
 .product-card{
-  background:white;
-  border:1px solid #e3e7eb;
+  background:rgba(255,255,255,.97);
+  border:1px solid rgba(227,231,235,.95);
   border-radius:10px;
   overflow:hidden;
   transition:.3s;
   cursor:pointer;
-  box-shadow:0 10px 30px rgba(7,19,33,.06);
-  position:relative;
-  z-index:3;
+  box-shadow:
+    0 10px 30px rgba(7,19,33,.12);
 }
 
 .product-card:hover{
   transform:translateY(-8px);
-  box-shadow:0 25px 55px rgba(7,19,33,.15);
+  box-shadow:
+    0 25px 55px rgba(7,19,33,.22);
 }
 
 .product-image{
@@ -776,8 +805,16 @@ section{
 
 .contact-box{
   background:
-    radial-gradient(circle at 80% 20%,rgba(217,169,40,.18),transparent 28%),
-    linear-gradient(135deg,#091725,#102d45);
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(217,169,40,.18),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #091725,
+      #102d45
+    );
 
   border-radius:12px;
   padding:55px;
@@ -824,7 +861,9 @@ footer{
 }
 
 
-/* ================= TABLET ================= */
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media(max-width:950px){
 
@@ -838,6 +877,7 @@ footer{
 
   .about-grid{
     grid-template-columns:1fr;
+    gap:40px;
   }
 
   .quality-grid{
@@ -850,12 +890,41 @@ footer{
 
   .modal-product-image{
     min-height:350px;
+    height:350px;
+  }
+
+  .about{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255,255,255,.93) 0%,
+        rgba(255,255,255,.80) 48%,
+        rgba(255,255,255,.42) 100%
+      ),
+      url("petroyam-bottles.png");
+
+    background-size:cover;
+    background-position:center;
+  }
+
+  .products{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(244,246,248,.94) 0%,
+        rgba(244,246,248,.78) 42%,
+        rgba(244,246,248,.46) 100%
+      ),
+      url("petroyam-products.png");
+
+    background-size:cover;
+    background-position:center;
   }
 
 }
 
 
-/* ================= MOBILE ================= */
+/* ================= MOBILE SMALL ================= */
 
 @media(max-width:600px){
 
@@ -863,20 +932,30 @@ footer{
     min-height:72px;
   }
 
+  .brand{
+    gap:8px;
+  }
+
   .brand img{
     width:75px;
+    height:52px;
   }
 
   .brand-text strong{
     font-size:12px;
   }
 
-  .brand-text span{
-    display:none;
+  .nav-right{
+    gap:8px;
+  }
+
+  .language-button{
+    padding:7px 11px;
+    font-size:12px;
   }
 
 
-  /* ---------- HERO MOBILE ---------- */
+  /* HERO */
 
   .hero{
     min-height:720px;
@@ -884,172 +963,179 @@ footer{
     background:
       linear-gradient(
         180deg,
-        rgba(5,13,23,.94) 0%,
-        rgba(5,13,23,.80) 45%,
-        rgba(5,13,23,.68) 100%
+        rgba(5,13,23,.90) 0%,
+        rgba(5,13,23,.70) 45%,
+        rgba(5,13,23,.90) 100%
       ),
       url("petroyam-background.png");
 
     background-size:cover;
-    background-position:center center;
-    background-repeat:no-repeat;
+    background-position:center;
   }
 
   .hero-content{
-    padding-top:80px;
+    padding-top:90px;
     width:92%;
   }
 
   .hero-logo{
     width:min(350px,82vw);
     max-height:180px;
-    margin-bottom:25px;
+    margin:0 auto 25px;
   }
 
   .hero-kicker{
-    font-size:11px;
+    font-size:10px;
     letter-spacing:2px;
-    line-height:1.5;
+    margin-bottom:14px;
   }
 
   .hero-subtitle{
     font-size:22px;
-    line-height:1.35;
+    line-height:1.45;
   }
 
   .hero-text{
-    font-size:15px;
+    font-size:14px;
     line-height:1.8;
+    margin-bottom:25px;
   }
 
   .hero-actions{
-    width:100%;
     flex-direction:column;
-  }
-
-  .hero-actions .btn{
     width:100%;
   }
 
+  .btn{
+    width:100%;
+    min-width:0;
+  }
 
-  /* ---------- ORIGIN MOBILE ---------- */
+
+  /* UAE */
+
+  .origin{
+    padding:18px 0;
+  }
 
   .origin-content{
     flex-direction:column;
     gap:3px;
   }
 
+  .origin strong{
+    font-size:14px;
+  }
 
-  /* ---------- GENERAL MOBILE ---------- */
+  .origin span{
+    font-size:12px;
+  }
+
+
+  /* SECTIONS */
 
   section{
-    padding:75px 0;
+    padding:70px 0;
   }
 
   .section-heading{
-    margin-bottom:40px;
+    margin-bottom:35px;
   }
 
   .section-heading h2{
-    font-size:36px;
-    line-height:1.15;
+    font-size:34px;
   }
 
   .section-heading p{
-    font-size:15px;
-    line-height:1.8;
+    font-size:14px;
   }
 
 
-  /* ---------- ABOUT MOBILE ---------- */
+  /* ABOUT */
 
   .about{
     background:
       linear-gradient(
         180deg,
-        rgba(255,255,255,.97) 0%,
-        rgba(255,255,255,.90) 42%,
-        rgba(255,255,255,.66) 100%
+        rgba(255,255,255,.96) 0%,
+        rgba(255,255,255,.87) 42%,
+        rgba(255,255,255,.58) 100%
       ),
       url("petroyam-bottles.png");
 
     background-size:cover;
-    background-position:center center;
-    background-repeat:no-repeat;
+    background-position:center;
   }
 
   .about-grid{
-    gap:40px;
-  }
-
-  .about-copy{
-    position:relative;
-    z-index:3;
+    gap:30px;
   }
 
   .about-copy h2{
-    font-size:34px;
-    line-height:1.2;
+    font-size:32px;
+    line-height:1.25;
   }
 
   .about-copy p{
-    font-size:15px;
-    line-height:1.8;
+    font-size:14px;
   }
 
   .about-panel{
-    min-height:330px;
+    min-height:300px;
+  }
+
+  .about-panel-content{
+    padding:30px;
+  }
+
+  .about-panel strong{
+    font-size:28px;
   }
 
 
-  /* ---------- PRODUCTS MOBILE ---------- */
+  /* PRODUCTS */
 
   .products{
     background:
       linear-gradient(
         180deg,
-        rgba(244,246,248,.97) 0%,
-        rgba(244,246,248,.91) 40%,
-        rgba(244,246,248,.68) 100%
+        rgba(244,246,248,.96) 0%,
+        rgba(244,246,248,.83) 38%,
+        rgba(244,246,248,.55) 100%
       ),
       url("petroyam-products.png");
 
-    background-size:cover;
-    background-position:center center;
-    background-repeat:no-repeat;
-  }
-
-  .products .section-heading{
-    position:relative;
-    z-index:3;
+    background-size:auto 100%;
+    background-position:center;
   }
 
   .products-grid{
     grid-template-columns:1fr;
-    gap:24px;
-    position:relative;
-    z-index:4;
+    gap:18px;
   }
 
   .product-card{
-    position:relative;
-    z-index:5;
+    width:100%;
   }
 
   .product-image{
-    height:420px;
+    height:400px;
   }
 
   .product-info{
-    padding:22px 20px 24px;
+    padding:20px;
+  }
+
+  .product-name{
+    font-size:23px;
   }
 
 
-  /* ---------- QUALITY MOBILE ---------- */
+  /* QUALITY */
 
   .quality-grid{
     grid-template-columns:1fr;
-    gap:16px;
+    gap:15px;
   }
 
   .quality-card{
@@ -1057,25 +1143,7 @@ footer{
   }
 
 
-  /* ---------- CONTACT MOBILE ---------- */
-
-  .contact-box{
-    padding:35px 25px;
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-  .contact-box h2{
-    font-size:30px;
-    line-height:1.25;
-  }
-
-  .contact-box .btn{
-    width:100%;
-  }
-
-
-  /* ---------- MODAL MOBILE ---------- */
+  /* MODAL */
 
   .modal{
     padding:12px;
@@ -1087,15 +1155,16 @@ footer{
   }
 
   .modal-product-image{
-    min-height:320px;
+    min-height:300px;
+    height:300px;
   }
 
   .modal-details{
-    padding:38px 22px;
+    padding:32px 18px;
   }
 
   .modal-details h2{
-    font-size:34px;
+    font-size:32px;
   }
 
   .modal-grade{
@@ -1111,46 +1180,73 @@ footer{
     padding:9px 5px;
   }
 
-  .modal-close{
-    top:10px;
-    left:10px;
-    width:36px;
-    height:36px;
+  .typical-note{
+    line-height:1.6;
+  }
+
+
+  /* CONTACT */
+
+  .contact-box{
+    padding:32px 22px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:25px;
+  }
+
+  .contact-box h2{
+    font-size:30px;
+  }
+
+  .contact-box p{
+    font-size:14px;
+  }
+
+  .contact-box .btn{
+    width:100%;
   }
 
 }
 
 
-/* ================= EXTRA SMALL PHONES ================= */
+/* ================= VERY SMALL PHONES ================= */
 
 @media(max-width:380px){
 
   .hero{
-    min-height:680px;
-    background-position:center center;
+    min-height:700px;
   }
 
   .hero-logo{
-    width:300px;
-    max-width:85vw;
+    width:280px;
   }
 
   .hero-subtitle{
     font-size:20px;
   }
 
-  .about-copy h2{
-    font-size:30px;
-  }
-
-  .section-heading h2{
-    font-size:32px;
-  }
-
   .product-image{
-    height:380px;
+    height:350px;
   }
 
+  .modal-product-image{
+    height:260px;
+    min-height:260px;
+  }
+
+}
+
+
+/* ================= LANGUAGE / DIRECTION ================= */
+
+html[dir="ltr"] .spec-table th,
+html[dir="ltr"] .spec-table td{
+  text-align:left;
+}
+
+html[dir="ltr"] .modal-close{
+  left:auto;
+  right:16px;
 }
 
 </style>
@@ -1229,8 +1325,6 @@ footer{
 
   <div class="container hero-content">
 
-
-    <!-- LOGO -->
 
     <img
       src="petroyam-logo.jpg"
@@ -1910,19 +2004,13 @@ function openProduct(id){
   }
 
 
-  /* اسم المنتج */
-
   document.getElementById("modalName").textContent =
     product.name;
 
 
-  /* اللزوجة + API */
-
   document.getElementById("modalGrade").textContent =
     product.grade + " · " + product.api;
 
-
-  /* صورة المنتج الصحيحة */
 
   const modalImage =
     document.getElementById("modalImage");
@@ -1940,8 +2028,6 @@ function openProduct(id){
   modalImage.style.backgroundPosition =
     product.position;
 
-
-  /* المواصفات */
 
   const body =
     document.getElementById("specBody");
@@ -1967,8 +2053,6 @@ function openProduct(id){
 
   });
 
-
-  /* فتح النافذة */
 
   document
     .getElementById("productModal")
