@@ -1091,9 +1091,11 @@ footer{
     background-color:#071321;
     background-image:url("products.jpg");
     background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center center;
 
+    /* مهم: بالموبايل الصورة تغطي كامل الـHero */
+    background-size:cover;
+
+    background-position:center center;
     margin-top:0;
   }
 
@@ -1101,9 +1103,9 @@ footer{
     background:
       linear-gradient(
         180deg,
-        rgba(5,13,23,.82) 0%,
-        rgba(5,13,23,.48) 42%,
-        rgba(5,13,23,.72) 100%
+        rgba(5,13,23,.58) 0%,
+        rgba(5,13,23,.28) 45%,
+        rgba(5,13,23,.62) 100%
       );
   }
 
