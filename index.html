@@ -1086,26 +1086,33 @@ footer{
   /* ================= HERO MOBILE ================= */
 
   .hero{
-    min-height:720px;
+    min-height:0;
+    height:auto;
 
     background-color:#071321;
     background-image:url("products.jpg");
     background-repeat:no-repeat;
 
-    /* مهم: بالموبايل الصورة تغطي كامل الـHero */
-    background-size:cover;
+    /* الصورة 1280 × 640 = نسبة 2:1 */
+    background-size:100% auto;
+    background-position:center top;
 
-    background-position:center center;
     margin-top:0;
+
+    /* نفس نسبة الصورة */
+    aspect-ratio:2 / 1;
+
+    display:flex;
+    align-items:flex-end;
   }
 
   .hero:before{
     background:
       linear-gradient(
         180deg,
-        rgba(5,13,23,.58) 0%,
-        rgba(5,13,23,.28) 45%,
-        rgba(5,13,23,.62) 100%
+        rgba(5,13,23,.12) 0%,
+        rgba(5,13,23,.22) 45%,
+        rgba(5,13,23,.72) 100%
       );
   }
 
@@ -1114,35 +1121,39 @@ footer{
   }
 
   .hero-content{
-    padding-top:90px;
+    padding-top:0;
+    padding-bottom:25px;
     width:92%;
   }
 
   .hero-kicker{
-    font-size:10px;
-    letter-spacing:2px;
-    margin-bottom:14px;
+    font-size:9px;
+    letter-spacing:1.5px;
+    margin-bottom:8px;
   }
 
   .hero-subtitle{
-    font-size:22px;
-    line-height:1.45;
+    font-size:21px;
+    line-height:1.35;
+    margin-bottom:10px;
   }
 
   .hero-text{
-    font-size:14px;
-    line-height:1.8;
-    margin-bottom:25px;
+    font-size:13px;
+    line-height:1.65;
+    margin-bottom:18px;
   }
 
   .hero-actions{
     flex-direction:column;
     width:100%;
+    gap:10px;
   }
 
   .btn{
     width:100%;
     min-width:0;
+    padding:12px 20px;
   }
 
 
@@ -1365,7 +1376,8 @@ footer{
 @media(max-width:380px){
 
   .hero{
-    min-height:700px;
+    min-height:0;
+    aspect-ratio:2 / 1;
   }
 
   .hero-subtitle{
