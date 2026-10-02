@@ -12,8 +12,6 @@ content="PetroYAM — Premium automotive lubricants, proudly made in the United 
 
 <style>
 
-/* ================= ROOT ================= */
-
 :root{
   --navy:#071321;
   --navy-2:#0b1d31;
@@ -107,10 +105,6 @@ header{
   letter-spacing:2px;
 }
 
-.brand-text span{
-  display:none;
-}
-
 .nav-right{
   display:flex;
   align-items:center;
@@ -151,9 +145,7 @@ header{
 }
 
 
-/* =========================================================
-   BRAND INTRO
-========================================================= */
+/* ================= BRAND INTRO ================= */
 
 .brand-intro{
   width:100%;
@@ -178,7 +170,7 @@ header{
 }
 
 
-/* ================= HERO ================= */
+/* ================= HERO DESKTOP ================= */
 
 .hero{
   min-height:760px;
@@ -300,28 +292,6 @@ header{
   border-color:var(--gold);
   color:var(--gold-light);
   background:rgba(7,19,33,.28);
-}
-
-.hero-badge{
-  margin-top:38px;
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  color:#e9eef2;
-  font-size:14px;
-  padding:10px 16px;
-  border:1px solid rgba(217,169,40,.35);
-  background:rgba(255,255,255,.035);
-  border-radius:4px;
-}
-
-.hero-badge:before{
-  content:"";
-  width:8px;
-  height:8px;
-  background:var(--gold);
-  border-radius:50%;
-  box-shadow:0 0 14px rgba(217,169,40,.8);
 }
 
 
@@ -638,7 +608,7 @@ section{
 }
 
 
-/* ================= INSIDE PETROYAM VIDEO ================= */
+/* ================= VIDEO ================= */
 
 .inside-petroyam{
   background:
@@ -788,7 +758,7 @@ section{
 }
 
 
-/* ================= PRODUCT MODAL ================= */
+/* ================= MODAL ================= */
 
 .modal{
   position:fixed;
@@ -963,9 +933,7 @@ footer{
 }
 
 
-/* =========================================================
-   TABLET
-========================================================= */
+/* ================= TABLET ================= */
 
 @media(max-width:950px){
 
@@ -1026,7 +994,9 @@ footer{
 }
 
 
-/* ================= MOBILE ================= */
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media(max-width:600px){
 
@@ -1057,7 +1027,7 @@ footer{
   }
 
 
-  /* ================= BRAND INTRO MOBILE ================= */
+  /* ================= BRAND INTRO ================= */
 
   .brand-intro{
     margin-top:72px;
@@ -1077,83 +1047,133 @@ footer{
     padding:0;
   }
 
-  .brand-intro + .hero{
-    margin-top:0;
-    padding-top:0;
-  }
 
-
-  /* ================= HERO MOBILE ================= */
+  /* =====================================================
+     MOBILE HERO
+     
+     الصورة أولاً كاملة
+     ثم النص والأزرار أسفل الصورة
+     ===================================================== */
 
   .hero{
     min-height:0;
     height:auto;
+    padding:0;
+
+    display:block;
 
     background-color:#071321;
-    background-image:url("products.jpg");
-    background-repeat:no-repeat;
-
-    /* الصورة 1280 × 640 = نسبة 2:1 */
-    background-size:100% auto;
-    background-position:center top;
+    background-image:none;
 
     margin-top:0;
-
-    /* نفس نسبة الصورة */
-    aspect-ratio:2 / 1;
-
-    display:flex;
-    align-items:flex-end;
   }
 
+  /* الصورة الكاملة */
+
   .hero:before{
-    background:
-      linear-gradient(
-        180deg,
-        rgba(5,13,23,.12) 0%,
-        rgba(5,13,23,.22) 45%,
-        rgba(5,13,23,.72) 100%
-      );
+    content:"";
+    display:block;
+    position:relative;
+    inset:auto;
+
+    width:100%;
+    aspect-ratio:2 / 1;
+
+    background-image:url("products.jpg");
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    background-position:center;
+
+    background-color:#071321;
   }
 
   .hero:after{
     display:none;
   }
 
+
+  /* قسم النص تحت الصورة */
+
   .hero-content{
-    padding-top:0;
-    padding-bottom:25px;
-    width:92%;
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    max-width:none;
+
+    padding:28px 20px 30px;
+
+    margin:0;
+
+    background:
+      linear-gradient(
+        180deg,
+        #071321 0%,
+        #0a1929 100%
+      );
+
+    text-align:center;
   }
 
+
   .hero-kicker{
-    font-size:9px;
+    font-size:8px;
     letter-spacing:1.5px;
     margin-bottom:8px;
+    color:var(--gold-light);
   }
+
 
   .hero-subtitle{
     font-size:21px;
     line-height:1.35;
-    margin-bottom:10px;
+    max-width:100%;
+    margin:0 auto 9px;
+
+    color:#ffffff;
+
+    text-shadow:
+      0 2px 10px rgba(0,0,0,.35);
   }
+
 
   .hero-text{
     font-size:13px;
     line-height:1.65;
-    margin-bottom:18px;
+
+    max-width:500px;
+
+    margin:0 auto 20px;
+
+    color:#dbe4ea;
+
+    text-shadow:none;
   }
+
+
+  /* الأزرار */
 
   .hero-actions{
+    display:flex;
     flex-direction:column;
+
     width:100%;
-    gap:10px;
+
+    gap:9px;
+
+    flex-wrap:nowrap;
   }
 
-  .btn{
+
+  .hero-actions .btn{
     width:100%;
     min-width:0;
-    padding:12px 20px;
+
+    padding:12px 14px;
+
+    font-size:13px;
+
+    white-space:nowrap;
   }
 
 
@@ -1276,7 +1296,7 @@ footer{
   }
 
 
-  /* ================= INSIDE PETROYAM VIDEO MOBILE ================= */
+  /* ================= VIDEO ================= */
 
   .inside-heading{
     margin-bottom:30px;
@@ -1375,13 +1395,20 @@ footer{
 
 @media(max-width:380px){
 
-  .hero{
-    min-height:0;
+  .hero:before{
     aspect-ratio:2 / 1;
+  }
+
+  .hero-content{
+    padding:25px 17px 28px;
   }
 
   .hero-subtitle{
     font-size:20px;
+  }
+
+  .hero-text{
+    font-size:12px;
   }
 
   .product-image{
@@ -1473,9 +1500,6 @@ html[dir="ltr"] .modal-close{
 </header>
 
 
-
-<!-- ================= PAGE CONTENT ================= -->
-
 <main>
 
 
@@ -1492,18 +1516,15 @@ html[dir="ltr"] .modal-close{
 </section>
 
 
-
 <!-- ================= HERO ================= -->
 
 <section class="hero" id="home">
 
   <div class="container hero-content">
 
-
     <div class="hero-kicker">
       PERFORMANCE · PROTECTION · CONFIDENCE
     </div>
-
 
     <div
       class="hero-subtitle"
@@ -1512,14 +1533,12 @@ html[dir="ltr"] .modal-close{
       زيوت مصممة للأداء. ثقة تدوم.
     </div>
 
-
     <p
       class="hero-text"
       data-i18n="heroText"
     >
       حلول متطورة لزيوت محركات السيارات، تجمع بين الأداء الموثوق والهوية الحديثة والتقنية الألمانية.
     </p>
-
 
     <div class="hero-actions">
 
@@ -1531,7 +1550,6 @@ html[dir="ltr"] .modal-close{
         استكشف منتجاتنا
       </a>
 
-
       <a
         href="#about"
         class="btn btn-outline"
@@ -1542,11 +1560,9 @@ html[dir="ltr"] .modal-close{
 
     </div>
 
-
   </div>
 
 </section>
-
 
 
 <!-- ================= ORIGIN ================= -->
@@ -1576,13 +1592,11 @@ html[dir="ltr"] .modal-close{
 </div>
 
 
-
 <!-- ================= ABOUT ================= -->
 
 <section class="about" id="about">
 
   <div class="container about-grid">
-
 
     <div class="about-copy">
 
@@ -1593,16 +1607,13 @@ html[dir="ltr"] .modal-close{
         ABOUT PETROYAM
       </div>
 
-
       <h2 data-i18n="aboutTitle">
         تقنية ألمانية. هوية إماراتية.
       </h2>
 
-
       <p data-i18n="aboutText1">
         PetroYAM هي علامة متخصصة في زيوت محركات السيارات، تأسست برؤية واضحة لتقديم منتجات تجمع بين الجودة والأداء والاعتمادية.
       </p>
-
 
       <p data-i18n="aboutText2">
         نركز على تطوير مجموعة من زيوت المحركات بمواصفات واضحة ومعلومات فنية دقيقة تساعد العميل على اختيار المنتج المناسب لاحتياجاته.
@@ -1633,13 +1644,11 @@ html[dir="ltr"] .modal-close{
 </section>
 
 
-
 <!-- ================= PRODUCTS ================= -->
 
 <section class="products" id="products">
 
   <div class="container">
-
 
     <div class="section-heading">
 
@@ -1650,11 +1659,9 @@ html[dir="ltr"] .modal-close{
         PETROYAM PRODUCTS
       </div>
 
-
       <h2 data-i18n="productsTitle">
         منتجاتنا
       </h2>
-
 
       <p data-i18n="productsIntro">
         مجموعة من زيوت محركات السيارات بمواصفات فنية واضحة، مصممة لتلبية احتياجات مختلفة من الأداء والحماية.
@@ -1663,11 +1670,8 @@ html[dir="ltr"] .modal-close{
     </div>
 
 
-
     <div class="products-grid">
 
-
-      <!-- PRIME -->
 
       <article
         class="product-card"
@@ -1702,9 +1706,6 @@ html[dir="ltr"] .modal-close{
       </article>
 
 
-
-      <!-- ELITE -->
-
       <article
         class="product-card"
         onclick="openProduct('elite')"
@@ -1738,9 +1739,6 @@ html[dir="ltr"] .modal-close{
       </article>
 
 
-
-      <!-- LEGEND -->
-
       <article
         class="product-card"
         onclick="openProduct('legend')"
@@ -1773,9 +1771,6 @@ html[dir="ltr"] .modal-close{
 
       </article>
 
-
-
-      <!-- POWER -->
 
       <article
         class="product-card"
@@ -1817,8 +1812,7 @@ html[dir="ltr"] .modal-close{
 </section>
 
 
-
-<!-- ================= INSIDE PETROYAM VIDEO ================= -->
+<!-- ================= VIDEO ================= -->
 
 <section class="inside-petroyam" id="inside-petroyam">
 
@@ -1864,13 +1858,11 @@ html[dir="ltr"] .modal-close{
 </section>
 
 
-
 <!-- ================= QUALITY ================= -->
 
 <section class="quality" id="quality">
 
   <div class="container">
-
 
     <div class="section-heading">
 
@@ -1881,18 +1873,15 @@ html[dir="ltr"] .modal-close{
         OUR APPROACH
       </div>
 
-
       <h2 data-i18n="qualityTitle">
         ما تمثله PetroYAM
       </h2>
-
 
       <p data-i18n="qualityIntro">
         الجودة والأداء والوضوح في كل منتج.
       </p>
 
     </div>
-
 
 
     <div class="quality-grid">
@@ -1911,7 +1900,6 @@ html[dir="ltr"] .modal-close{
       </div>
 
 
-
       <div class="quality-card">
 
         <h3 data-i18n="quality2Title">
@@ -1923,7 +1911,6 @@ html[dir="ltr"] .modal-close{
         </p>
 
       </div>
-
 
 
       <div class="quality-card">
@@ -1946,7 +1933,6 @@ html[dir="ltr"] .modal-close{
 </section>
 
 
-
 <!-- ================= CONTACT ================= -->
 
 <section class="contact" id="contact">
@@ -1954,7 +1940,6 @@ html[dir="ltr"] .modal-close{
   <div class="container">
 
     <div class="contact-box">
-
 
       <div>
 
@@ -1977,7 +1962,6 @@ html[dir="ltr"] .modal-close{
         تواصل معنا
       </a>
 
-
     </div>
 
   </div>
@@ -1985,7 +1969,6 @@ html[dir="ltr"] .modal-close{
 </section>
 
 </main>
-
 
 
 <!-- ================= FOOTER ================= -->
@@ -2003,7 +1986,6 @@ html[dir="ltr"] .modal-close{
 </footer>
 
 
-
 <!-- ================= PRODUCT MODAL ================= -->
 
 <div
@@ -2012,12 +1994,10 @@ html[dir="ltr"] .modal-close{
   onclick="closeProduct(event)"
 >
 
-
   <div
     class="modal-box"
     onclick="event.stopPropagation()"
   >
-
 
     <button
       class="modal-close"
@@ -2029,7 +2009,6 @@ html[dir="ltr"] .modal-close{
 
     <div class="modal-content">
 
-
       <div
         class="modal-product-image"
         id="modalImage"
@@ -2038,16 +2017,13 @@ html[dir="ltr"] .modal-close{
 
       <div class="modal-details">
 
-
         <div class="section-label">
           PETROYAM
         </div>
 
-
         <h2 id="modalName">
           PRIME
         </h2>
-
 
         <div
           class="modal-grade"
@@ -2055,7 +2031,6 @@ html[dir="ltr"] .modal-close{
         >
           5W-30 · API SP
         </div>
-
 
 
         <table class="spec-table">
@@ -2097,7 +2072,6 @@ html[dir="ltr"] .modal-close{
           Typical Properties. Values shown are product technical data and may be subject to applicable production specifications.
         </div>
 
-
       </div>
 
     </div>
@@ -2107,20 +2081,17 @@ html[dir="ltr"] .modal-close{
 </div>
 
 
-
 <script>
 
 
-/* ================= PRODUCT DATA ================= */
+/* ================= PRODUCTS DATA ================= */
 
 const products = {
-
 
   prime:{
     name:"PRIME",
     grade:"5W-30",
     api:"API SP",
-
     position:"0% center",
 
     specs:[
@@ -2132,7 +2103,6 @@ const products = {
       ["Flash Point","ASTM D92","°C","220"],
       ["Total Base Number (TBN)","ASTM D2896","mg KOH/g","8.27"]
     ]
-
   },
 
 
@@ -2140,7 +2110,6 @@ const products = {
     name:"ELITE",
     grade:"5W-20",
     api:"API SP",
-
     position:"33.333% center",
 
     specs:[
@@ -2152,7 +2121,6 @@ const products = {
       ["Flash Point","ASTM D92","°C","≥220"],
       ["Total Base Number (TBN)","ASTM D2896","mg KOH/g","8.1"]
     ]
-
   },
 
 
@@ -2160,7 +2128,6 @@ const products = {
     name:"LEGEND",
     grade:"20W-50",
     api:"API SL",
-
     position:"66.666% center",
 
     specs:[
@@ -2172,7 +2139,6 @@ const products = {
       ["Flash Point","ASTM D92","°C","230"],
       ["Total Base Number (TBN)","ASTM D2896","mg KOH/g","8.4"]
     ]
-
   },
 
 
@@ -2180,7 +2146,6 @@ const products = {
     name:"POWER",
     grade:"10W-30",
     api:"API SN",
-
     position:"100% center",
 
     specs:[
@@ -2192,13 +2157,12 @@ const products = {
       ["Flash Point","ASTM D92","°C","220"],
       ["Total Base Number (TBN)","ASTM D2896","mg KOH/g","8.27"]
     ]
-
   }
 
 };
 
 
-/* ================= MODAL ================= */
+/* ================= OPEN PRODUCT ================= */
 
 function openProduct(id){
 
@@ -2270,6 +2234,7 @@ function openProduct(id){
 }
 
 
+/* ================= CLOSE PRODUCT ================= */
 
 function closeProduct(){
 
@@ -2283,11 +2248,9 @@ function closeProduct(){
 }
 
 
-
-/* ================= LANGUAGE ================= */
+/* ================= TRANSLATIONS ================= */
 
 const translations = {
-
 
   ar:{
 
@@ -2504,10 +2467,10 @@ const translations = {
 };
 
 
+/* ================= LANGUAGE ================= */
 
 let currentLanguage =
   localStorage.getItem("petroyamLanguage") || "ar";
-
 
 
 function setLanguage(language){
@@ -2567,7 +2530,6 @@ function setLanguage(language){
 }
 
 
-
 function toggleLanguage(){
 
   setLanguage(
@@ -2579,8 +2541,7 @@ function toggleLanguage(){
 }
 
 
-
-/* ================= ESCAPE KEY ================= */
+/* ================= ESC KEY ================= */
 
 document.addEventListener(
   "keydown",
@@ -2594,8 +2555,7 @@ document.addEventListener(
 );
 
 
-
-/* ================= START ================= */
+/* ================= INITIAL LANGUAGE ================= */
 
 setLanguage(currentLanguage);
 
