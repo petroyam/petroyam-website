@@ -153,12 +153,12 @@ header{
 
 /* =========================================================
    BRAND INTRO
-   نفس صورة اللوجو بعرض الشاشة
 ========================================================= */
 
 .brand-intro{
   width:100%;
   margin-top:82px;
+  padding:0;
   background:#071321;
   display:flex;
   justify-content:center;
@@ -172,6 +172,8 @@ header{
   width:100%;
   height:auto;
   max-width:none;
+  margin:0;
+  padding:0;
   object-fit:contain;
 }
 
@@ -185,10 +187,6 @@ header{
   display:flex;
   align-items:center;
 
-  /*
-    products.jpg هي صورة الـ Hero.
-    contain = إظهار الصورة كاملة بدون قص.
-  */
   background-color:#071321;
   background-image:url("products.jpg");
   background-repeat:no-repeat;
@@ -201,9 +199,6 @@ header{
   position:absolute;
   inset:0;
 
-  /*
-    Overlay خفيف فقط لرفع وضوح النص.
-  */
   background:
     linear-gradient(
       90deg,
@@ -239,10 +234,6 @@ header{
   max-width:800px;
   padding-top:80px;
 }
-
-
-/* ================= HERO LOGO ================= */
-/* تم حذف لوجو الـHero لأن اللوجو أصبح بقسم مستقل */
 
 
 /* ================= HERO TEXT ================= */
@@ -1071,12 +1062,24 @@ footer{
   .brand-intro{
     margin-top:72px;
     width:100%;
+    padding:0;
+    height:auto;
+    line-height:0;
+    display:block;
   }
 
   .brand-intro-logo{
+    display:block;
     width:100%;
     height:auto;
     max-width:none;
+    margin:0;
+    padding:0;
+  }
+
+  .brand-intro + .hero{
+    margin-top:0;
+    padding-top:0;
   }
 
 
@@ -1085,15 +1088,13 @@ footer{
   .hero{
     min-height:720px;
 
-    /*
-      الصورة نفسها تظهر كاملة.
-      لا يوجد cover حتى لا يتم قصها.
-    */
     background-color:#071321;
     background-image:url("products.jpg");
     background-repeat:no-repeat;
     background-size:contain;
     background-position:center center;
+
+    margin-top:0;
   }
 
   .hero:before{
@@ -2102,81 +2103,83 @@ const products = {
 
 
   prime:{
-name:"PRIME",
-grade:"5W-30",
-api:"API SP",
+    name:"PRIME",
+    grade:"5W-30",
+    api:"API SP",
 
-position:"0% center",
+    position:"0% center",
 
-specs:[
-  ["Density @ 29.5°C","ASTM D1298","kg/L","0.872"],
-  ["Kinematic Viscosity @ 100°C","ASTM D445","cSt","12.09"],
-  ["Kinematic Viscosity @ 40°C","ASTM D445","cSt","75.86"],
-  ["Viscosity Index (min)","ASTM D2270","—","158"],
-  ["Pour Point","ASTM D97","°C","-39"],
-  ["Flash Point","ASTM D92","°C","220"],
-  ["Total Base Number (TBN)","ASTM D2896","mg KOH/g","8.27"]
-]
+    specs:[
+      ["Density @ 29.5°C","ASTM D1298","kg/L","0.872"],
+      ["Kinematic Viscosity @ 100°C","ASTM D445","cSt","12.09"],
+      ["Kinematic Viscosity @ 40°C","ASTM D445","cSt","75.86"],
+      ["Viscosity Index (min)","ASTM D2270","—","158"],
+      ["Pour Point","ASTM D97","°C","-39"],
+      ["Flash Point","ASTM D92","°C","220"],
+      ["Total Base Number (TBN)","ASTM D2896","mg KOH/g","8.27"]
+    ]
 
-},
-
-
-elite:{
-name:"ELITE",
-grade:"5W-20",
-api:"API SP",
-
-position:"33.333% center",
-
-specs:[
-  ["Density @ 29.5°C","ASTM D1298","kg/L","0.8669"],
-  ["Kinematic Viscosity @ 100°C","ASTM D445","cSt","9.0"],
-  ["Kinematic Viscosity @ 40°C","ASTM D445","cSt","58.52"],
-  ["Viscosity Index (min)","ASTM D2270","—","≥140"],
-  ["Pour Point","ASTM D97","°C","-39"],
-  ["Flash Point","ASTM D92","°C","≥220"],
-  ["Total Base Number (TBN)","ASTM D2896","mg KOH/g","8.1"]
-]
-
-},
+  },
 
 
-legend:{
-  name:"LEGEND",
-  grade:"20W-50",
-  api:"API SL",
-  position:"66.666% center",
+  elite:{
+    name:"ELITE",
+    grade:"5W-20",
+    api:"API SP",
 
-  specs:[
-    ["Density @ 29.5°C","ASTM D1298","kg/L","0.877"],
-    ["Kinematic Viscosity @ 100°C","ASTM D445","cSt","20.04"],
-    ["Kinematic Viscosity @ 40°C","ASTM D445","cSt","175.5"],
-    ["Viscosity Index (min)","ASTM D2270","—","132"],
-    ["Pour Point","ASTM D97","°C","-30"],
-    ["Flash Point","ASTM D92","°C","230"],
-    ["Total Base Number (TBN)","ASTM D2896","mg KOH/g","8.4"]
-  ]
+    position:"33.333% center",
 
-},
+    specs:[
+      ["Density @ 29.5°C","ASTM D1298","kg/L","0.8669"],
+      ["Kinematic Viscosity @ 100°C","ASTM D445","cSt","9.0"],
+      ["Kinematic Viscosity @ 40°C","ASTM D445","cSt","58.52"],
+      ["Viscosity Index (min)","ASTM D2270","—","≥140"],
+      ["Pour Point","ASTM D97","°C","-39"],
+      ["Flash Point","ASTM D92","°C","≥220"],
+      ["Total Base Number (TBN)","ASTM D2896","mg KOH/g","8.1"]
+    ]
 
-power:{
-  name:"POWER",
-  grade:"10W-30",
-  api:"API SN",
+  },
 
-  position:"100% center",
 
-  specs:[
-    ["Density @ 29.5°C","ASTM D1298","kg/L","0.872"],
-    ["Kinematic Viscosity @ 100°C","ASTM D445","cSt","11.23"],
-    ["Kinematic Viscosity @ 40°C","ASTM D445","cSt","75.86"],
-    ["Viscosity Index (min)","ASTM D2270","—","141"],
-    ["Pour Point","ASTM D97","°C","-39"],
-    ["Flash Point","ASTM D92","°C","220"],
-    ["Total Base Number (TBN)","ASTM D2896","mg KOH/g","8.27"]
-  ]
+  legend:{
+    name:"LEGEND",
+    grade:"20W-50",
+    api:"API SL",
 
-}
+    position:"66.666% center",
+
+    specs:[
+      ["Density @ 29.5°C","ASTM D1298","kg/L","0.877"],
+      ["Kinematic Viscosity @ 100°C","ASTM D445","cSt","20.04"],
+      ["Kinematic Viscosity @ 40°C","ASTM D445","cSt","175.5"],
+      ["Viscosity Index (min)","ASTM D2270","—","132"],
+      ["Pour Point","ASTM D97","°C","-30"],
+      ["Flash Point","ASTM D92","°C","230"],
+      ["Total Base Number (TBN)","ASTM D2896","mg KOH/g","8.4"]
+    ]
+
+  },
+
+
+  power:{
+    name:"POWER",
+    grade:"10W-30",
+    api:"API SN",
+
+    position:"100% center",
+
+    specs:[
+      ["Density @ 29.5°C","ASTM D1298","kg/L","0.872"],
+      ["Kinematic Viscosity @ 100°C","ASTM D445","cSt","11.23"],
+      ["Kinematic Viscosity @ 40°C","ASTM D445","cSt","75.86"],
+      ["Viscosity Index (min)","ASTM D2270","—","141"],
+      ["Pour Point","ASTM D97","°C","-39"],
+      ["Flash Point","ASTM D92","°C","220"],
+      ["Total Base Number (TBN)","ASTM D2896","mg KOH/g","8.27"]
+    ]
+
+  }
 
 };
 
