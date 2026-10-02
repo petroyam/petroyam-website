@@ -151,29 +151,28 @@ header{
 }
 
 
-/* ================= BRAND INTRO ================= */
+/* =========================================================
+   BRAND INTRO
+   نفس صورة اللوجو بعرض الشاشة
+========================================================= */
 
 .brand-intro{
   width:100%;
-  min-height:220px;
+  margin-top:82px;
   background:#071321;
   display:flex;
-  align-items:center;
   justify-content:center;
-  padding:35px 20px;
-  margin-top:82px;
+  align-items:center;
+  overflow:hidden;
+  line-height:0;
 }
 
 .brand-intro-logo{
-  width:min(430px,70vw);
-  max-height:180px;
+  display:block;
+  width:100%;
   height:auto;
+  max-width:none;
   object-fit:contain;
-  object-position:center;
-
-  filter:
-    drop-shadow(0 15px 30px rgba(0,0,0,.30))
-    drop-shadow(0 0 20px rgba(217,169,40,.08));
 }
 
 
@@ -240,6 +239,10 @@ header{
   max-width:800px;
   padding-top:80px;
 }
+
+
+/* ================= HERO LOGO ================= */
+/* تم حذف لوجو الـHero لأن اللوجو أصبح بقسم مستقل */
 
 
 /* ================= HERO TEXT ================= */
@@ -403,10 +406,6 @@ section{
   position:relative;
   overflow:hidden;
 
-  /*
-    petroyam-background.png
-    مدمجة بخلفية بيضاء شفافة حتى لا تؤثر على وضوح النص.
-  */
   background:
     linear-gradient(
       90deg,
@@ -503,10 +502,6 @@ section{
   position:relative;
   overflow:hidden;
 
-  /*
-    حسب التوزيع المطلوب:
-    petroyam-bottles.png = خلفية قسم Products
-  */
   background:
     linear-gradient(
       90deg,
@@ -596,10 +591,6 @@ section{
   position:absolute;
   inset:0;
 
-  /*
-    petroyam-products.jpg تستخدم كما هي
-    ومقسمة بصرياً على البطاقات الأربع.
-  */
   background-image:url("petroyam-products.jpg");
   background-repeat:no-repeat;
   background-size:400% 100%;
@@ -1078,14 +1069,14 @@ footer{
   /* ================= BRAND INTRO MOBILE ================= */
 
   .brand-intro{
-    min-height:180px;
     margin-top:72px;
-    padding:25px 18px;
+    width:100%;
   }
 
   .brand-intro-logo{
-    width:72vw;
-    max-height:130px;
+    width:100%;
+    height:auto;
+    max-width:none;
   }
 
 
@@ -1467,6 +1458,12 @@ html[dir="ltr"] .modal-close{
 </header>
 
 
+
+<!-- ================= PAGE CONTENT ================= -->
+
+<main>
+
+
 <!-- ================= BRAND INTRO ================= -->
 
 <section class="brand-intro">
@@ -1482,8 +1479,6 @@ html[dir="ltr"] .modal-close{
 
 
 <!-- ================= HERO ================= -->
-
-<main>
 
 <section class="hero" id="home">
 
@@ -2146,7 +2141,7 @@ specs:[
 },
 
 
- legend:{
+legend:{
   name:"LEGEND",
   grade:"20W-50",
   api:"API SL",
@@ -2164,7 +2159,7 @@ specs:[
 
 },
 
- power:{
+power:{
   name:"POWER",
   grade:"10W-30",
   api:"API SN",
