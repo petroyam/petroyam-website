@@ -1287,6 +1287,18 @@ footer{
     height:400px;
   }
 
+  /* Keep the original bottle proportions on mobile only */
+  .product-image:before{
+    background-size:400% auto;
+    background-position-y:center;
+  }
+
+  /* Override the JavaScript inline size for the mobile product modal */
+  .modal-product-image{
+    background-size:400% auto !important;
+    background-position-y:center;
+  }
+
   .product-info{
     padding:20px;
   }
