@@ -504,7 +504,7 @@ section{
   font-weight:500;
 }
 
-/* ================= PRODUCT GRID - الصور الجديدة + تعديل الحجم فقط ================= */
+/* ================= PRODUCT GRID ================= */
 
 .products-grid{
   display:grid;
@@ -577,11 +577,29 @@ section{
   font-weight:bold;
 }
 
+/* زر عرض المواصفات - احترافي */
 .product-link{
   margin-top:18px;
-  color:#a47b12;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  width:100%;
+  padding:12px 14px;
+  border-radius:6px;
+  background:var(--navy);
+  color:#ffffff;
   font-weight:bold;
-  font-size:13px;
+  font-size:13.5px;
+  letter-spacing:.2px;
+  border:1px solid var(--navy);
+  transition:.25s;
+}
+
+.product-card:hover .product-link{
+  background:var(--gold);
+  border-color:var(--gold);
+  color:var(--navy);
 }
 
 /* ================= VIDEO ================= */
